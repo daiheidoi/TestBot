@@ -15,8 +15,8 @@ module.exports = (robot) ->
   robot.respond /タバコ$/i, (msg) ->
     msg.send ":smoking: :smoking: :smoking: :smoking: :smoking: 行くか... :smoking: :smoking: :smoking: :smoking: :smoking: "
 
-  robot.respond /i (.*)$/i, (msg) -> 
-    msg.send "http://images.google.co.jp/images?hl=ja&source=hp&q=" + msg.match[1]
+  robot.respond /wiki (.*)$/i, (msg) -> 
+    msg.send "https://ja.wikipedia.org/wiki/" + msg.match[1]
 
   # robot.hear /badger/i, (res) ->
   #   res.send "Badgers? BADGERS? WE DON'T NEED NO STINKIN BADGERS"
