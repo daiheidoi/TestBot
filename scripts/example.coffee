@@ -26,6 +26,8 @@ module.exports = (robot) ->
         res.send "画像検索失敗しました..."
         return
 
+      msg.send body
+
       element = body.getElementByClassName("rg_l");
       attr = element.getAttribute("href");
       message = attr.replace("https://www.google.co.jp/imgres?imgurl=", "")
