@@ -19,7 +19,7 @@ module.exports = (robot) ->
     robot.http("https://ja.wikipedia.org/wiki/" + msg.match[1])
       .get() (err, res, body) ->
 
-  robot.respond /img (.*)$/i, (msg) -> 
+  robot.respond /i (.*)$/i, (msg) -> 
     robot.http("http://images.google.co.jp/images?hl=ja&source=hp&q=" + msg.match[1])
       .get() (err, res, body) -> 
 
