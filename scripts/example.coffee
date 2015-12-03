@@ -29,11 +29,10 @@ module.exports = (robot) ->
 
       element = body.getElementByClassName("rg_l");
       i = 0;
-      num = elements.length;
-      result = element.href
-
-      res.send result
-  
+      attr = element.getAttribute("href");
+      message = attr.replace("https://www.google.co.jp/imgres?imgurl=", "")
+      res.send message
+      
   robot.respond /クラブ$/i, (msg) -> 
     msg.send "http://t2-shibuya.com/club/"
 
