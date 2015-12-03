@@ -17,6 +17,9 @@ module.exports = (robot) ->
 
   robot.respond /wiki (.*)$/i, (msg) -> 
     msg.send "https://ja.wikipedia.org/wiki/" + msg.match[1]
+  
+  robot.respond /クラブ$/i, (msg) -> 
+    msg.send "http://t2-shibuya.com/club/"
 
   # robot.hear /badger/i, (res) ->
   #   res.send "Badgers? BADGERS? WE DON'T NEED NO STINKIN BADGERS"
