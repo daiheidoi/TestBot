@@ -38,8 +38,18 @@ module.exports = (robot) ->
   robot.respond /クラブ$/i, (msg) -> 
     msg.send "http://t2-shibuya.com/club/"
 
-  robot.respond /ちんこ$/i, (msg) ->
-    msg.send "はしたないわ"
+  robot.hear /ちんこ$/i, (msg) ->
+    msg.send """
+```
+   Λ＿Λ     ＼＼
+（  ・∀・）  | | ｶﾞｯ
+ と     ）  | |
+  Ｙ /ノ     人
+   / ）    < >   _Λ  ∩
+＿/し'   ／／  Ｖ｀Д´）/
+（＿フ彡             / ←>> @#{msg.message.user.name}
+```
+  """
 
   # robot.hear /badger/i, (res) ->
   #   res.send "Badgers? BADGERS? WE DON'T NEED NO STINKIN BADGERS"
