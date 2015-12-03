@@ -20,18 +20,16 @@ module.exports = (robot) ->
       .get() (err, res, body) ->
 
   robot.respond /i (.*)$/i, (msg) -> 
-    robot.http("http://images.google.co.jp/images?hl=ja&source=hp&q=" + msg.match[1])
-      .get() (err, res, body) -> 
-
-      if res.statusCode isnt 200
+    request = require('request');
+    request.get("http://images.google.co.jp/images?hl=ja&source=hp&q=#{msg.match[1]}, (error, response, body) ->
+      if response.statusCode isnt 200
         res.send "画像検索失敗しました..."
         return
 
       element = body.getElementByClassName("rg_l");
-      i = 0;
       attr = element.getAttribute("href");
       message = attr.replace("https://www.google.co.jp/imgres?imgurl=", "")
-      res.send message
+      res.send message )
       
   robot.respond /クラブ$/i, (msg) -> 
     msg.send "http://t2-shibuya.com/club/"
