@@ -16,7 +16,23 @@ module.exports = (robot) ->
     msg.send ":smoking: :smoking: :smoking: :smoking: :smoking: 行くか... :smoking: :smoking: :smoking: :smoking: :smoking: "
 
   robot.respond /wiki (.*)$/i, (msg) -> 
-    msg.send "https://ja.wikipedia.org/wiki/" + msg.match[1]
+    robot.http("https://ja.wikipedia.org/wiki/" + msg.match[1])
+      .get() (err, res, body) ->
+
+  robot.respond /img (.*)$/i, (msg) -> 
+    robot.http("http://images.google.co.jp/images?hl=ja&source=hp&q=" + msg.match[1])
+      .get() (err, res, body) -> 
+
+      if res.statusCode isnt 200
+        res.send "画像検索失敗しました..."
+        return
+
+      element = body.getElementByClassName("rg_l");
+      i = 0;
+      num = elements.length;
+      result = element.href
+
+      res.send result
   
   robot.respond /クラブ$/i, (msg) -> 
     msg.send "http://t2-shibuya.com/club/"
