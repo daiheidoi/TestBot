@@ -16,8 +16,10 @@ module.exports = (robot) ->
     msg.send ":smoking: :smoking: :smoking: :smoking: :smoking: 行くか... :smoking: :smoking: :smoking: :smoking: :smoking: "
 
   robot.respond /wiki (.*)$/i, (msg) -> 
-    robot.http("https://ja.wikipedia.org/wiki/" + msg.match[1])
-      .get() (err, res, body) ->
+    msg.send "http://ja.wikipedia.org/wiki/#{msg.match[1]}"
+    
+ #  robot.http("https://ja.wikipedia.org/wiki/" + msg.match[1])
+ #   .get() (err, res, body) ->
 
  # robot.respond /i (.*)$/i, (msg) -> 
  #   request = require('request');
