@@ -38,7 +38,7 @@ module.exports = (robot) ->
   robot.respond /クラブ$/i, (msg) -> 
     msg.send "http://t2-shibuya.com/club/"
 
-  robot.respond /ちんこ(?: me| on)$/i, (msg) ->
+  robot.respond /ちんこ$/i, (msg) ->
     msg.send "はしたないわ"
 
   # robot.hear /badger/i, (res) ->
