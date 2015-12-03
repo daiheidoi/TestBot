@@ -19,19 +19,19 @@ module.exports = (robot) ->
     robot.http("https://ja.wikipedia.org/wiki/" + msg.match[1])
       .get() (err, res, body) ->
 
-  robot.respond /i (.*)$/i, (msg) -> 
-    request = require('request');
-    request.get("http://images.google.co.jp/images?hl=ja&source=hp&q=#{msg.match[1]}, (error, response, body) ->
-      if response.statusCode isnt 200
-        res.send "画像検索失敗しました..."
-        return
+ # robot.respond /i (.*)$/i, (msg) -> 
+ #   request = require('request');
+ #   request.get("http://images.google.co.jp/images?hl=ja&source=hp&q=#{msg.match[1]}, (error, response, body) ->
+ #     if response.statusCode isnt 200
+ #       res.send "画像検索失敗しました..."
+ #       return
 
-      msg.send body
+ #     msg.send body
 
-      element = body.getElementByClassName("rg_l");
-      attr = element.getAttribute("href");
-      message = attr.replace("https://www.google.co.jp/imgres?imgurl=", "")
-      msg.send message )
+ #     element = body.getElementByClassName("rg_l");
+ #     attr = element.getAttribute("href");
+ #     message = attr.replace("https://www.google.co.jp/imgres?imgurl=", "")
+ #     msg.send message )
       
   robot.respond /クラブ$/i, (msg) -> 
     msg.send "http://t2-shibuya.com/club/"
