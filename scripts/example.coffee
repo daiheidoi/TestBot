@@ -50,7 +50,7 @@ module.exports = (robot) ->
   robot.respond /クラブ$/i, (msg) -> 
     msg.send "http://t2-shibuya.com/club/"
 
-  robot.hear /(ちんこ|ちんぽ|ちんぽこ|ちんぽこ丸$/i, (msg) ->
+  robot.hear /(ちんこ|ちんぽ|ちんぽこ|ちんぽこ丸)$/i, (msg) ->
     msg.send """
 ```
 　　　　　　　　　　　　　　_i⌒r-.、　　　　 
