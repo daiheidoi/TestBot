@@ -52,8 +52,8 @@ module.exports = (robot) ->
   """
 
   robot.hear /昼飯どうする？$/i, (msg) ->
-    msg.send ""ラーメン一択やろ！
-    http://tabelog.com/tokyo/A1304/A130401/13182184/""
+    msg.send "ラーメン一択やろ！
+    http://tabelog.com/tokyo/A1304/A130401/13182184/"
 
   # robot.hear /badger/i, (res) ->
   #   res.send "Badgers? BADGERS? WE DON'T NEED NO STINKIN BADGERS"
