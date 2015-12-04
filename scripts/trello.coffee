@@ -2,33 +2,34 @@
 #   Trello APIの機能を提供
 #
 # Configuration:
-#   HUBOT_TRELLO_KEY
-#   HUBOT_TRELLO_TOKEN
-#   HUBOT_TRELLO_ORGANIZATION
-#
+#   HUBOT_TRELLO_KEY=e977a363bce024ca2aa730dbe0b9bad8
+#   HUBOT_TRELLO_TOKEN=8bc41daa4f2b67ff543d1a11ed0984b31e206c801f68e04689300abe26ce2e7f
+#   HUBOT_TRELLO_ORGANIZATION=daiheidoi
+#   HUBOT_TRELLO_LIST_TODO=5660fe5fc0b066a1cc7c96e8
 # Commands:
-#   hubot trello list    <list>          - カードの一覧を表示
-#   hubot trello add     <list> <name>   - カードをリストに追加
-#   hubot trello move    <list> <card>   - カードをリストに移動
-#   hubot trello show    <card>          - カードの詳細を表示
-#   hubot trello archive <card>          - カードをアーカイブ
-#   hubot trello comment <card> <text>   - カードにコメントを追加
-#   hubot trello assign  <card> <member> - カードに担当者を追加
-#   hubot trello due     <card> <date>   - カードに締切を設定
-#   hubot trello member                  - ボードのメンバーの一覧を表示
-#   hubot trello member  <name>          - メンバーが担当するカードの一覧を表示
+#   trello list    <list>          - カードの一覧を表示
+#   trello todo    <query> 		   - trelloのTODOリストに簡単登録
+#   trello add     <list> <name>   - カードをリストに追加
+#   trello move    <list> <card>   - カードをリストに移動
+#   trello show    <card>          - カードの詳細を表示
+#   trello archive <card>          - カードをアーカイブ
+#   trello comment <card> <text>   - カードにコメントを追加
+#   trello assign  <card> <member> - カードに担当者を追加
+#   trello due     <card> <date>   - カードに締切を設定
+#   trello member                  - ボードのメンバーの一覧を表示
+#   trello member  <name>          - メンバーが担当するカードの一覧を表示
 
-#module.exports = (robot) ->
-#  robot.hear /^todo (.*)/i, (msg) ->
-#    title = "#{msg.match[1]}"
-#
-#    Trello = require("node-trello")
-#    t = new Trello(process.env.HUBOT_TRELLO_KEY, process.env.HUBOT_TRELLO_TOKEN)
-#    t.post "/1/cards", {name: title, idList: process.env.HUBOT_TRELLO_LIST}, (err, data) ->
-#      if err
-#        msg.send "保存できませんでした"
-#        return
-#      msg.send "「#{title}」 をTrelloに保存しました"
+module.exports = (robot) ->
+  robot.hear /^trello todo (.*)/i, (msg) ->
+    title = "#{msg.match[1]}"
+
+    Trello = require("node-trello")
+    t = new Trello(process.env.HUBOT_TRELLO_KEY, process.env.HUBOT_TRELLO_TOKEN)
+    t.post "/1/cards", {name: title, idList: process.env.HUBOT_TRELLO_LIST_TODO}, (err, data) ->
+      if err
+        msg.send "保存できませんでした"
+        return
+      msg.send "「#{title}」 をTrelloに保存しました"
 
 moment = require('moment')
 table = require('easy-table')
