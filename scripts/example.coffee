@@ -21,7 +21,7 @@ ramens = [
 ]
 
 module.exports = (robot) ->
-  robot.respond /うんこ$/i, (msg) ->
+  robot.respond /(うんこ|うんち)$/i, (msg) ->
     msg.send "ぶりーーーーーーっ :poop: :poop: :poop: :poop: "
 
   robot.respond /タバコ$/i, (msg) ->
