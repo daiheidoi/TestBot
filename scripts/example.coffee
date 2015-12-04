@@ -64,7 +64,8 @@ module.exports = (robot) ->
   """
 
   robot.hear /昼飯どうする？$/i, (msg) ->
-    msg.send "ラーメン一択やろ！ " + msg.random ramens
+    msg.send "ラーメン一択やろ！ "
+     + msg.random ramens
 
   # robot.hear /badger/i, (res) ->
   #   res.send "Badgers? BADGERS? WE DON'T NEED NO STINKIN BADGERS"
