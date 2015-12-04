@@ -122,7 +122,7 @@ module.exports = (robot) ->
     trello.post url, { name: args['cardName'] }, (err, data) =>
       if err
         return msg.reply("#{ERR_MSG}\n```\n#{err}\n```")
-      # msg.reply("「#{data.name}」を #{args['listName']} に追加しました。\n#{data.shortUrl}")
+      msg.reply("「#{data.name}」を #{args['listName']} に追加しました。\n#{data.shortUrl}")
 
   getCards = (msg, args) ->
     url = "/1/cards/#{args['cardShort']}"
