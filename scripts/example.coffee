@@ -50,16 +50,22 @@ module.exports = (robot) ->
   robot.respond /クラブ$/i, (msg) -> 
     msg.send "http://t2-shibuya.com/club/"
 
-  robot.hear /ちんこ$/i, (msg) ->
+  robot.hear /(ちんこ|ちんぽ|ちんぽこ|ちんぽこ丸$/i, (msg) ->
     msg.send """
 ```
-   Λ＿Λ     ＼＼
-（  ・∀・）  | | ｶﾞｯ
- と     ）  | |
-  Ｙ /ノ     人
-   / ）    < >   _Λ  ∩
-＿/し'   ／／  Ｖ｀Д´）/
-（＿フ彡             / ←>> @#{msg.message.user.name}
+　　　　　　　　　　　　　　_i⌒r-.、　　　　 
+　　　　　　　　　　　,,-'´　　　ノ 
+　　　　　　　　　　./　　　　　.l 
+　　　　　　　　　 /　　　　　　 l　　　　　チ 
+　　　((　 ◯　　.ｌ　　　　　　　 l　　　　　ン 
+　　　　　 .ヽヽ、l　 i　　　　　 .l　　　　　 ポ 
+　　　　　　　＼ヽ　l　　　　　　l　　　))　 コ 
+　　　　　 ,-'´￣｀ゝ´￣｀ヽ　 ﾉl　　　　　 ポ 
+　　　　 .,'　　　 .,'　　　◯ニ.ンl　　　　　 .ン 
+　　　　 i　　　　i　　　　　　　 .i 
+　　　　 ヽ、　　丶　　　　　 .ノ 
+　　　　　　｀'ー-.'´｀'ー- ''´i .| 
+　　　　　　　　凵　　　　　 .凵
 ```
   """
 
