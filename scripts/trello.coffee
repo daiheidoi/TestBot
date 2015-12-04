@@ -267,7 +267,7 @@ module.exports = (robot) ->
       memberName: msg.match[1]
     })
 
-  robot.hear /trello\s+todo\s(.*)/i, (msg) ->
+  robot.hear /trello\s+todo\s+(.*)/i, (msg) ->
     title = "#{msg.match[1]}"
     trello.post "/1/cards", {name: title, idList: process.env.HUBOT_TRELLO_LIST_TODO}, (err, data) ->
       if err
