@@ -8,6 +8,18 @@
 #
 #   These are from the scripting documentation: https://github.com/github/hubot/blob/master/docs/scripting.md
 
+ramens = [
+  "http://tabelog.com/tokyo/A1304/A130401/13182184/",
+  "http://tabelog.com/tokyo/A1304/A130401/13040181/",
+  "http://tabelog.com/tokyo/A1304/A130401/13006892/",
+  "http://tabelog.com/tokyo/A1304/A130401/13104460/",
+  "http://tabelog.com/tokyo/A1304/A130401/13141446/",
+  "http://tabelog.com/tokyo/A1304/A130401/13066030/",
+  "http://tabelog.com/tokyo/A1304/A130401/13156913/",
+  "http://tabelog.com/tokyo/A1304/A130401/13022300/",
+  "http://tabelog.com/tokyo/A1304/A130401/13001055/"
+]
+
 module.exports = (robot) ->
   robot.respond /うんこ$/i, (msg) ->
     msg.send "ぶりーーーーーーっ :poop: :poop: :poop: :poop: "
@@ -52,8 +64,7 @@ module.exports = (robot) ->
   """
 
   robot.hear /昼飯どうする？$/i, (msg) ->
-    msg.send "ラーメン一択やろ！
-    http://tabelog.com/tokyo/A1304/A130401/13182184/"
+    msg.send "ラーメン一択やろ！ " + msg.random ramens
 
   # robot.hear /badger/i, (res) ->
   #   res.send "Badgers? BADGERS? WE DON'T NEED NO STINKIN BADGERS"
