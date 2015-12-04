@@ -1,5 +1,5 @@
 # Description:
-#   Returns the URL of the first bing hit for a query
+#   trelloのTODOリストに簡単登録
 #
 # Dependencies:
 #   None
@@ -16,7 +16,7 @@
 #   Brandon Satrom
 
 module.exports = (robot) ->
-  robot.respond /^todo (.*)/i, (msg) ->
+  robot.hear /^todo (.*)/i, (msg) ->
     title = "#{msg.match[1]}"
 
     Trello = require("node-trello")
