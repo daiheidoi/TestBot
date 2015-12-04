@@ -19,18 +19,6 @@
 #   trello member                  - ボードのメンバーの一覧を表示
 #   trello member  <name>          - メンバーが担当するカードの一覧を表示
 
-module.exports = (robot) ->
-  robot.hear /^trello todo (.*)/i, (msg) ->
-    title = "#{msg.match[1]}"
-
-    Trello = require("node-trello")
-    t = new Trello(process.env.HUBOT_TRELLO_KEY, process.env.HUBOT_TRELLO_TOKEN)
-    t.post "/1/cards", {name: title, idList: process.env.HUBOT_TRELLO_LIST_TODO}, (err, data) ->
-      if err
-        msg.send "保存できませんでした"
-        return
-      msg.send "「#{title}」 をTrelloに保存しました"
-
 moment = require('moment')
 table = require('easy-table')
 trelloAPI = require('node-trello')
@@ -278,3 +266,11 @@ module.exports = (robot) ->
     getMembersCards(msg, {
       memberName: msg.match[1]
     })
+
+  robot.hear /trello\s+todo\s(.*)/i, (msg) ->
+    title = "#{msg.match[1]}"
+    trello.post "/1/cards", {name: title, idList: process.env.HUBOT_TRELLO_LIST_TODO}, (err, data) ->
+      if err
+        msg.send "保存できませんでした"
+        return
+      msg.send "「#{title}」 をTrelloに保存しました"
