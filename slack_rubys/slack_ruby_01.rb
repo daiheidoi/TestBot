@@ -7,6 +7,7 @@ end
 
 Slack.chat_postMessage(text: "TESTちんぽこ丸", channel: '#smoking-area')
 
+# Slack.chat_postMessage(text: "TESTちんぽこ丸", channel: '#smoking-area')
 #require 'slack'
 #Slack.configure {|config| config.token = TOKEN }
 #client = Slack.realtime
