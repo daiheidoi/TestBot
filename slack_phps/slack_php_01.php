@@ -1,15 +1,36 @@
-<? php
-// 定数の定義
-define("Token", "xoxp-15751162311-15745376292-16149053830-83d5f684fd");// full-access token
-define("Channel", "%23daiheidoi_alim_task");// 通知送り先のチャンネル名
- 
-function postSlack($txt) {
-    $txt = urlencode($txt);
-    $url = "https://slack.com/api/chat.postMessage?token=".Token."&channel=".Channel."&text=${txt}&as_user=true";
-    file_get_contents($url);
+<?php
+$incomingUrl = 'https://slack.com/api/chat.postMessage'; // 発行されたURL
+$payload = array(
+	'token' => 'xoxp-15751162311-15745376292-16149053830-83d5f684fd',
+	'text' => '投稿テスト', // メッセージ（必須）
+	'username' => 'php_bot', // 投稿者（サービス）名
+	'icon_emoji' => ':doi_hanco:', // 投稿者名のアイコン http://www.emoji-cheat-sheet.com/
+	'channel' => '#smoking_area', // Channel（#または@から始まるchannel名）
+);
+
+$result = slackApiExecute($incomingUrl, $payload);
+var_dump($result);
+
+function slackApiExecute($url, $payload)
+{
+    $headers = array();
+    $params = array('payload' => json_encode($payload));
+    $result = postRequest($url, $params, $headers);
+    return $result;
 }
- 
-// 「Hello Slack」とメッセージを送信
-postSlack("Testちんこ");
-exit;
+function postRequest($url, $params, $headers = array())
+{
+    $ch = curl_init($url);
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $params);
+    $result = curl_exec($ch);
+    $error = curl_error($ch);
+    curl_close($ch);
+    if ($error) {
+        throw new \Exception($error);
+    }
+    return $result;
+}
 ?>

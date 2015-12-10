@@ -19,5 +19,4 @@ text = case Time.now.hour
        when 19 then '19時: 帰るか'
        end
 
-Slack.chat_postMessage(text: text, channel: '#smoking-area')
-Slack.chat_postMessage(text: text, channel: '#daiheidoi_alim_task')
+Slack.chat_postMessage(text: text, channel: '#smoking-area', username: '時報bot君' icon_emoji: ':doi_hanco:' )
