@@ -3,11 +3,13 @@
 
 import time
 import os
+import sys
 
 from watchdog.events import FileSystemEventHandler
 from watchdog.observers import Observer
 
-BASEDIR = os.path.abspath(os.path.dirname('/Users/daihei.doi/Desktop/md_files'))
+#BASEDIR = os.path.abspath(os.path.dirname('/Users/daihei.doi/Dropbox (株式会社エイリム)/lapis/開発/仕様書/次回更新マスタ/db仕様書_開発(ver1.0.4用)'))
+BASEDIR = os.path.abspath(os.path.dirname(sys.argv[1]))
 
 def getext(filename):
     return os.path.splitext(filename)[-1].lower()
@@ -17,7 +19,7 @@ class ChangeHandler(FileSystemEventHandler):
     def on_any_event(self, event):
         if event.is_directory:
             return
-        if getext(event.src_path) in ('.md'):
+        if getext(event.src_path) in ('.xlsm'):
 		#param = os.path.basename(event.src_path)		
        		#os.system('python ~/Desktop/Bayashin/slack_pythons/slack_test_post.py ' + param)
 		print(event)
@@ -25,7 +27,7 @@ class ChangeHandler(FileSystemEventHandler):
     def on_created(self, event):
         if event.is_directory:
             return
-        if getext(event.src_path) in ('.md'):
+        if getext(event.src_path) in ('.xlsm'):
 		param = os.path.basename(event.src_path)
 		state = '作成した'		
        		os.system('python ~/Desktop/Bayashin/slack_pythons/slack_test_post.py ' + param + ' ' + state )
@@ -33,7 +35,7 @@ class ChangeHandler(FileSystemEventHandler):
     def on_modified(self, event):
         if event.is_directory:
             return
-        if getext(event.src_path) in ('.md'):
+        if getext(event.src_path) in ('.xlsm'):
             	param = os.path.basename(event.src_path)		
 		state = '更新した'		
        		os.system('python ~/Desktop/Bayashin/slack_pythons/slack_test_post.py ' + param + ' ' + state )
@@ -41,7 +43,7 @@ class ChangeHandler(FileSystemEventHandler):
     def on_deleted(self, event):
         if event.is_directory:
             return
-        if getext(event.src_path) in ('.md'):
+        if getext(event.src_path) in ('.xlsm'):
             	param = os.path.basename(event.src_path)		
 		state = '削除した'		
        		os.system('python ~/Desktop/Bayashin/slack_pythons/slack_test_post.py ' + param + ' ' + state )
