@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 require 'slack'
 
-Slack.configure {|config| config.token = 'xoxb-16357547427-5cgzFGpXdTuYOtNXLwZFgpDJ'}
+Slack.configure {|config| config.token = 'xoxp-15751162311-15745376292-16149053830-83d5f684fd'}
 
 client = Slack.realtime
 

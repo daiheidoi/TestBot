@@ -72,6 +72,21 @@ module.exports = (robot) ->
   robot.hear /昼飯どうする？$/i, (msg) ->
     msg.send "ラーメン一択やろ！\n" + msg.random ramens
 
+  robot.respond /:iwanami:$/i, (msg) ->
+    msg.send """
+```
+　　　　　　　　　,r"´⌒｀ﾞ`ヽ
+　　　　　　　／　,　　　-‐- !､
+　　　 　　／　{,}f　　-‐- ,,,__､)
+　　　　／　　 /　　.r'~"''‐--､)
+　　,r''"´⌒ヽ{　　 ヽ　(・)ﾊ(・)}､
+　/　　　　　　＼　　（⊂｀-'つ）i-､
+　　　　　　　　　 `}. （__,,ノヽ_ﾉ,ﾉ　 ＼ ウホっ
+　　　　　　　　　　 l　　 ｀-" ,ﾉ　　　 ヽ
+　　　　　　　　　　 }　､､___,j''　　　　　 l
+```
+  """
+
   # robot.hear /badger/i, (res) ->
   #   res.send "Badgers? BADGERS? WE DON'T NEED NO STINKIN BADGERS"
   #
