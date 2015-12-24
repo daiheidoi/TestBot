@@ -107,7 +107,7 @@ module.exports = (robot) ->
 ```
   """
 
-robot.respond /ちんちん$/i, (msg) ->
+  robot.respond /ちんちん$/i, (msg) ->
     msg.send """
 ```
 　　(　ﾟ∀ﾟ)　ちんちん! ちんちん!
