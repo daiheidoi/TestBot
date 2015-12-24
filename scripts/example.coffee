@@ -107,6 +107,30 @@ module.exports = (robot) ->
 ```
   """
 
+robot.respond /ちんちん$/i, (msg) ->
+    msg.send """
+```
+　　(　ﾟ∀ﾟ)　ちんちん! ちんちん!
+　　(　 　　)
+　 　|　彡つ
+　 　し∪Ｊ
+　　　_　_
+　　(　ﾟ∀ﾟ)
+　　(　 ∩ミ　　ﾌﾞﾝﾌﾞﾝ
+　 　|　ωつ,ﾞ
+　 　し ⌒Ｊ
+
+おっぱ・・・
+　　 _, ,_
+　　(　ﾟДﾟ) 　ｶﾞﾝ!!
+　　(　 ∩ミ　＿＿＿＿
+　 　|　ωつ☆
+　 　し ⌒Ｊ　|
+
+
+```
+  """
+
   # robot.hear /badger/i, (res) ->
   #   res.send "Badgers? BADGERS? WE DON'T NEED NO STINKIN BADGERS"
   #
