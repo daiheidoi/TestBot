@@ -25,7 +25,20 @@ module.exports = (robot) ->
     msg.send "ぶりーーーーーーっ :poop: :poop: :poop: :poop: "
 
   robot.respond /タバコ$/i, (msg) ->
-    msg.send ":smoking: :smoking: :smoking: :smoking: :smoking: 行くか... :smoking: :smoking: :smoking: :smoking: :smoking: "
+    msg.send """
+```
+　　 ／￣￣＼ 
+　 ／　 _ノ　　＼ 
+　|　　（ ●）（●） 
+.　|　　 （__人__）　  ＼ 
+　 |　　　　｀ ⌒ﾉ　　 　  ＼ 
+. ヽ　 　　　 　} 　　 　 　＼ . ...:::,, 
+　　 ヽ　　　　ノ　　　　　 　,）:::::::ノ　. 
+　　　/　　　 く　　＼　　　　（:::::ソ:　. 
+　　　|　　　　 ＼　　＼ 　 ,ノノ　＼ 
+　 　 |　　　　|ヽ、二⌒) ━Ц　　 　  ＼ 
+```
+  """
 
  # robot.respond /wiki (.*)$/i, (msg) -> 
   #  msg.send "http://ja.wikipedia.org/wiki/#{msg.match[1]}"
