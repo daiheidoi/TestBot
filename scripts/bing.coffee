@@ -19,7 +19,7 @@ unless bingAccountKey
   throw "You must set HUBOT_BING_ACCOUNT_KEY in your environment vairables"
 
 module.exports = (robot) ->
-  robot.respond /img (.*)/i, (msg) ->
+  robot.hear /^bing( image)? (.*)/i, (msg) ->
     imageMe msg, msg.match[2], (url) ->
       msg.send url
 
@@ -33,4 +33,4 @@ imageMe = (msg, query, cb) ->
         image = msg.random images
         cb image.MediaUrl
       catch error
-        cb body	
+        cb body
