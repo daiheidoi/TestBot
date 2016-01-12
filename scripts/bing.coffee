@@ -19,7 +19,7 @@ unless bingAccountKey
   throw "You must set HUBOT_BING_ACCOUNT_KEY in your environment vairables"
 
 module.exports = (robot) ->
-  robot.respond /^( img)? (.*)/i, (msg) ->
+  robot.respond /img (.*)/i, (msg) ->
     imageMe msg, msg.match[2], (url) ->
       msg.send url
 
