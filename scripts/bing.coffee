@@ -1,25 +1,36 @@
+
 # Description:
-#   Returns the URL of the first bing hit for a query
+#   Queries Bing and returns a random image from the top 50 images found using Bing API
 #
 # Dependencies:
 #   None
 #
 # Configuration:
-#   None
+#   HUBOT_BING_ACCOUNT_KEY
 #
 # Commands:
-#   hubot bing me <query> - Bings <query> & returns 1st result's URL
+#   bing image <query> - Queries Bing Images for <query> & returns a random result from top 50
 #
 # Author:
 #   Brandon Satrom
 
+bingAccountKey = process.env.HUBOT_BING_ACCOUNT_KEY
+unless bingAccountKey
+  throw "You must set HUBOT_BING_ACCOUNT_KEY in your environment vairables"
+
 module.exports = (robot) ->
-  robot.respond /(bing)( me)? (.*)/i, (msg) ->
-    bingMe msg, msg.match[3], (url) ->
+  robot.hear /^bing( image)? (.*)/i, (msg) ->
+    imageMe msg, msg.match[2], (url) ->
       msg.send url
 
-bingMe = (msg, query, cb) ->
-  msg.http('http://www.bing.com/search')
-    .query(q: query)
+imageMe = (msg, query, cb) ->
+  msg.http('https://api.datamarket.azure.com/Bing/Search/Image')
+    .header("Authorization", "Basic " + new Buffer("#{bingAccountKey}:#{bingAccountKey}").toString('base64'))
+    .query(Query: "'" + query + "'", $format: "json", $top: 50)
     .get() (err, res, body) ->
-      cb body.match(/<div class="sb_tlst"><h3><a href="([^"]*)"/)?[1] || "Sorry, Bing had zero results for '#{query}'"
+      try
+        images = JSON.parse(body).d.results
+        image = msg.random images
+        cb image.MediaUrl
+      catch error
+        cb body
