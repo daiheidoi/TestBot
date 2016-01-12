@@ -7,4 +7,4 @@ export HUBOT_TWITTER_MENTION_QUERY='FFBE'
 export HUBOT_TWITTER_MENTION_ROOM='smoking-area'
 export HUBOT_SLACK_TOKEN='xoxp-15751162311-15745376292-16149053830-83d5f684fd'
 
-bin/hubot -adapter slack
+bin/hubot -a slack
