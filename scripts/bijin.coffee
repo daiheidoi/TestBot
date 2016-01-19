@@ -18,9 +18,9 @@ module.exports = (robot) ->
           msg.send('美人の取得に失敗しました')
           return
         result = JSON.parse(body)
-        category = result.category
-        thumb = result.thumb
-        link = result.link
+        category = result[0].category
+        thumb = result[0].thumb
+        link = result[0].link
         msg.send "お名前: #{category}\n" +
         "link: #{link}\n" +
         "#{thumb}\n" +
