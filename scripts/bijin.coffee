@@ -8,11 +8,6 @@
 # Author:
 #   
 
-arrify = require('arrify')
-dateFormat = require('dateformat')
-
-weathearAreaList = require('../config/weather_area_list.json')
-
 module.exports = (robot) ->
   robot.respond /美人/i, (msg) ->
     msg
@@ -23,8 +18,8 @@ module.exports = (robot) ->
           msg.send('美人の取得に失敗しました')
           return
         result = JSON.parse(body)
-        msg.send "お名前: #{result.category}\n" +
-        "#{result.thumb}\n" +
+        msg.send "お名前: #{result.id}\n" +
+        "#{result.pubDate}\n" +
         "link: #{result.link}\n" +
         "result: #{result}\n" +
         "res: #{res}\n" +
