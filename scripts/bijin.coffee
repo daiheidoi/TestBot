@@ -25,4 +25,7 @@ module.exports = (robot) ->
         result = JSON.parse(body)
         msg.send "お名前: #{result.category}\n" +
         "#{result.thumb}\n" +
-        "link: #{result.link}"
+        "link: #{result.link}\n"
+        "result: #{result}\n"
+        "res: #{res}\n"
+        "body: #{body}\n"
