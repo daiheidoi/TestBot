@@ -23,6 +23,7 @@ module.exports = (robot) ->
         link = result.link
         msg.send "お名前: #{category}\n" +
         "link: #{link}\n" +
-        "#{thumb}\n"
+        "#{thumb}\n" +
+        "resultLength: #{result.length}"
         
         
