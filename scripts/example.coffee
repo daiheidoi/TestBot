@@ -159,6 +159,16 @@ module.exports = (robot) ->
 ```
   """
 
+  robot.respond /エヴァ 第弐話$/i, (msg) ->
+  msg.send """
+```
+第弐話 見
+      知
+      ら
+      ぬ、天井
+```
+  """
+
   # robot.hear /badger/i, (res) ->
   #   res.send "Badgers? BADGERS? WE DON'T NEED NO STINKIN BADGERS"
   #
