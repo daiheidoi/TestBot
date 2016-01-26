@@ -160,7 +160,7 @@ module.exports = (robot) ->
   """
 
   robot.respond /エヴァ 第弐話$/i, (msg) ->
-  msg.send """
+    msg.send """
 ```
 第弐話 見
       知
