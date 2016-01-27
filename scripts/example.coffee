@@ -160,10 +160,10 @@ module.exports = (robot) ->
   """
 
   robot.respond /エヴァ\s+(.+)$/i, (msg) ->
-    nanwa = parseInt(msg.match[1], 10)
+    nanwa = msg.match[1]
     text = ""
     switch nanwa
-      when 1
+      when "1"
         text = """
 ```
 第壱話 
@@ -171,7 +171,7 @@ module.exports = (robot) ->
   徒、襲来
 ```
         """
-      when 2
+      when "2"
         text = """
 ```
 第弐話 見
@@ -180,7 +180,7 @@ module.exports = (robot) ->
       ぬ、天井
 ```
         """
-      when 3
+      when "3"
         text = """
 ```
 鳴らない、電
@@ -190,7 +190,7 @@ module.exports = (robot) ->
 話　　　　話       
 ```
         """
-      when 4
+      when "4"
         text = """
 ```
 雨、逃げ出
@@ -199,7 +199,7 @@ module.exports = (robot) ->
 第四話　後
 ```
         """
-      when 5
+      when "5"
         text = """
 ```
 レ　　第伍話
@@ -207,7 +207,7 @@ module.exports = (robot) ->
 心の向こうに    
 ```
         """
-      when 6
+      when "6"
         text = """
 ```
 決戦第３新
@@ -216,7 +216,7 @@ module.exports = (robot) ->
 第六話　市
 ```
         """
-      when 7
+      when "7"
         text = """
 ```
 人の造りし
@@ -224,7 +224,7 @@ module.exports = (robot) ->
 七話　　の
 ```
         """
-      when 8
+      when "8"
         text = """
 ```
 瞬　　　　　第
@@ -233,7 +233,7 @@ module.exports = (robot) ->
 心、重ねて
 ```
         """
-      when 9
+      when "9"
         text = """
 ```
 瞬　　　　　第
@@ -242,7 +242,7 @@ module.exports = (robot) ->
 心、重ねて
 ```
         """
-      when 10
+      when "10"
         text = """
 ```
 マグマ
@@ -250,7 +250,7 @@ module.exports = (robot) ->
 　　　第拾話     
 ```
         """
-      when 11
+      when "11"
         text = """
 ```
 静
@@ -260,7 +260,7 @@ module.exports = (robot) ->
 拾壱話　　　
 ```
         """
-      when 12
+      when "12"
         text = """
 ```
 奇跡の価値は
@@ -269,7 +269,7 @@ module.exports = (robot) ->
 第拾弐話
 ```
         """
-      when 13
+      when "13"
         text = """
 ```
 使徒、侵
@@ -278,7 +278,7 @@ module.exports = (robot) ->
 第拾参話
 ```
         """
-      when 14
+      when "14"
         text = """
 ```
 　第拾四話
@@ -287,7 +287,7 @@ module.exports = (robot) ->
 レ、魂の座
 ```
         """
-      when 15
+      when "15"
         text = """
 ```
 第
@@ -297,7 +297,7 @@ module.exports = (robot) ->
 　　　　黙
 ```
         """
-      when 16
+      when "16"
         text = """
 ```
 　　　　　第
@@ -308,7 +308,7 @@ module.exports = (robot) ->
 　病、そして
 ```
         """
-      when 17
+      when "17"
         text = """
 ```
 第拾七話
@@ -316,7 +316,7 @@ module.exports = (robot) ->
 の適格者 
 ```
         """
-      when 18
+      when "18"
         text = """
 ```
 第拾
@@ -325,7 +325,7 @@ module.exports = (robot) ->
 　　選択を
 ```
         """
-      when 19
+      when "19"
         text = """
 ```
 
@@ -334,7 +334,7 @@ module.exports = (robot) ->
 
 ```
         """
-      when 20
+      when "20"
         text = """
 ```
 心のかたち
@@ -342,7 +342,7 @@ module.exports = (robot) ->
 人のかたち
 ```
         """
-      when 21
+      when "21"
         text = """
 ```
 ネルフ、誕
@@ -350,7 +350,7 @@ module.exports = (robot) ->
 第弐拾壱話
 ```
         """
-      when 22
+      when "22"
         text = """
 ```
 せめて、人間ら
@@ -358,7 +358,7 @@ module.exports = (robot) ->
 第弐拾弐話　く  
 ```
         """
-      when 23
+      when "23"
         text = """
 ```
 第弐拾参話
@@ -367,7 +367,7 @@ module.exports = (robot) ->
 　　　　　涙
 ```
         """
-      when 24
+      when "24"
         text = """
 ```
 
@@ -376,13 +376,53 @@ module.exports = (robot) ->
 
 ```
         """
-      when 25
+      when "25"
         text = """
 ```
 　　　最終話
 　　世界の中心で
 　　アイを叫んだ
 　　けもの
+```
+        """
+      when ":iwanami:", "岩浪さん"
+        text = """
+```
+浦和乃話　民
+　　　　　度
+　　　　　が
+　　　　　低
+　　　　　い、地域
+```
+        """
+      when "和田さん"
+        text = """
+```
+ソードアートオン
+　　　　　　ライン
+　　　　　　　　の
+　　　　　　　　聖
+　　　　　　　　地
+所沢乃話
+
+```
+        """
+      when "中林さん"
+        text = """
+```
+　　　最終話
+　　世界の中心で
+　　アイを叫んだ
+　　けもの
+```
+        """
+      when "土井さん"
+        text = """
+```
+　　滋賀乃話
+母
+な
+る、みずうみ
 ```
         """
       else
