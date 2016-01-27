@@ -187,7 +187,7 @@ module.exports = (robot) ->
       
         第
         参
-　　　　　話       
+話　　　　話       
 ```
         """
       when 4
