@@ -404,7 +404,6 @@ module.exports = (robot) ->
 　　　　　　　　聖
 　　　　　　　　地
 所沢乃話
-
 ```
         """
       when "中林さん"
