@@ -382,7 +382,7 @@ module.exports = (robot) ->
 　　　最終話
 　　世界の中心で
 　　アイを叫んだ
-　　けもの
+　　大阪人
 ```
         """
       when ":iwanami:", "岩浪さん"
