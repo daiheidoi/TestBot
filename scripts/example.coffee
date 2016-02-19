@@ -454,10 +454,9 @@ module.exports = (robot) ->
     msg.send text
 
   robot.respond /date\s+me/i, (msg) ->
-    child_process.exec "date", (error, stdout, stderr) ->
+    child_process.exec "ruby ../slack_rubys/slack_ruby_01.rb", (error, stdout, stderr) ->
       if !error
-        output = stdout+''
-        msg.send output
+        msg.send "success"
       else
         msg.send "error"
 
