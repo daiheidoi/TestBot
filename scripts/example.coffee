@@ -429,6 +429,28 @@ module.exports = (robot) ->
 
     msg.send text
 
+  robot.respond /ラーメン\s+me$/i, (msg) ->
+    msg.send "さぁ食え！\n" +
+    "bing image ラーメン"
+
+  robot.respond /バーグ\s+me$/i, (msg) ->
+    msg.send "さぁ食え！\n" +
+    "bing image ハンバーグ"
+
+  robot.respond /ラーメン\s+bomb\s+(.+)$/i, (msg) ->
+    ramenNum = msg.match[1]
+    text = "さぁたんと食え！\n"
+    for i in [0..ramenNum]
+      text += "bing image ラーメン\n"
+    msg.send text
+
+  robot.respond /バーグ\s+bomb\s+(.+)$/i, (msg) ->
+    ramenNum = msg.match[1]
+    text = "さぁたんと食え！\n"
+    for i in [0..ramenNum]
+      text += "bing image ハンバーグ\n"
+    msg.send text
+
   # robot.hear /badger/i, (res) ->
   #   res.send "Badgers? BADGERS? WE DON'T NEED NO STINKIN BADGERS"
   #

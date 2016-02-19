@@ -7,16 +7,16 @@ Slack.configure do |config|
 end
 
 text = case Time.now.hour
-       when 10 then 'bing image 10時'
-       when 11 then 'bing image 11時'
-       when 12 then 'bing image 12時'
-       when 13 then 'bing image 13時'
-       when 14 then 'bing image 14時'
-       when 15 then 'bing image 15時'
-       when 16 then 'bing image 16時'
-       when 17 then 'bing image 17時'
-       when 18 then 'bing image 18時'
-       when 19 then 'bing image 19時'
+       when 10 then '10時だよー'
+       when 11 then '11時だよー'
+       when 12 then '12時だよー'
+       when 13 then '13時だよー'
+       when 14 then '14時だよー'
+       when 15 then '15時だよー'
+       when 16 then '16時だよー'
+       when 17 then '17時だよー'
+       when 18 then '18時だよー'
+       when 19 then '19時だよー'
        end
 
 Slack.chat_postMessage(text: text, channel: '#smoking-area', username: 'ruby_bot' )
