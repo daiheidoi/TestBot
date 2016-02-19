@@ -447,9 +447,9 @@ module.exports = (robot) ->
     msg.send text
 
   robot.respond /バーグ\s+bomb\s+(.+)$/i, (msg) ->
-    ramenNum = msg.match[1]
+    burgNum = msg.match[1]
     text = "さぁたんと食え！\n"
-    for i in [0..ramenNum]
+    for i in [0..burgNum]
       text += "bing image ハンバーグ\n"
     msg.send text
 
