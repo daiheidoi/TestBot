@@ -3,7 +3,7 @@
 require "slack"
 
 Slack.configure do |config|
-      config.token = 'xoxp-15751162311-15745376292-16149053830-83d5f684fd'
+      config.token = 'xoxp-15751162311-15745376292-22111567315-6dea56412b'
 end
 
 text = case Time.now.hour
