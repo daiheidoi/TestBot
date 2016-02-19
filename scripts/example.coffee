@@ -8,6 +8,8 @@
 #
 #   These are from the scripting documentation: https://github.com/github/hubot/blob/master/docs/scripting.md
 
+child_process = require 'child_process'
+
 ramens = [
   "http://tabelog.com/tokyo/A1304/A130401/13182184/",
   "http://tabelog.com/tokyo/A1304/A130401/13040181/",
@@ -451,6 +453,14 @@ module.exports = (robot) ->
       text += "bing image ハンバーグ\n"
     msg.send text
 
+  robot.respond /date\s+me/i, (msg) ->
+    child_process.exec "date \/T", (error, stdout, stderr) ->
+      if !error
+        output = stdout+''
+        msg.send output
+      else
+        msg.send "error"
+      
   # robot.hear /badger/i, (res) ->
   #   res.send "Badgers? BADGERS? WE DON'T NEED NO STINKIN BADGERS"
   #
