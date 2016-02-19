@@ -454,13 +454,13 @@ module.exports = (robot) ->
     msg.send text
 
   robot.respond /date\s+me/i, (msg) ->
-    child_process.exec "date \/T", (error, stdout, stderr) ->
+    child_process.exec "date", (error, stdout, stderr) ->
       if !error
         output = stdout+''
         msg.send output
       else
         msg.send "error"
-      
+
   # robot.hear /badger/i, (res) ->
   #   res.send "Badgers? BADGERS? WE DON'T NEED NO STINKIN BADGERS"
   #
