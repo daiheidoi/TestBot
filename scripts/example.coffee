@@ -39,7 +39,6 @@ module.exports = (robot) ->
     msg.send text
 
   robot.respond /ごりりんご$/i, (msg) ->
-    cnt = msg.match[1]
     text = "これが夢のコラボや！"
     for i in [0..499]
       iwanami = ":iwanami: "
