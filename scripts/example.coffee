@@ -42,10 +42,12 @@ module.exports = (robot) ->
     text = "これが夢のコラボや！"
     iwanami = ":iwanami: "
     kaoringo = ":kaoringo: "
+    okiba = ""
     for i in [0..499]
       if i % 50 == 0 then text += "\n"
+      if i % 50 == 0 then okiba = iwanami
       if i % 50 == 0 then iwanami = kaoringo
-      if i % 50 == 0 then kaoringo = iwanami
+      if i % 50 == 0 then kaoringo = okiba
       if i % 2 == 0 then text += iwanami
       if i % 2 == 1 then text += kaoringo
     msg.send text
