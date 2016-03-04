@@ -26,6 +26,18 @@ module.exports = (robot) ->
   robot.respond /(うんこ|うんち)$/i, (msg) ->
     msg.send "ぶりーーーーーーっ :poop: :poop: :poop: :poop: "
 
+  robot.respond /かおりんご$/i, (msg) ->
+    text = "顔、りんごやん :kaoringo:"
+    msg.send text 
+
+  robot.respond /かおりんご\s+bomb\s+(\S+)$/i, (msg) ->
+    cnt = msg.match[1]
+    text = "めっちゃ顔、りんごやん"
+    for i in [0..cnt]
+      text += ":kaoringo: "
+      if i % 5 == 0 then text += "\n"
+    msg.send text
+
   robot.respond /タバコ$/i, (msg) ->
     msg.send """
 ```
