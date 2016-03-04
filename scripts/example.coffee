@@ -40,11 +40,11 @@ module.exports = (robot) ->
 
   robot.respond /ごりりんご$/i, (msg) ->
     cnt = msg.match[1]
-    text = ""
+    text = "これが夢のコラボや！"
     for i in [0..200]
+      if i % 20 == 0 then text += "\n"
       if i % 2 == 0 then text += ":iwanami: "
       if i % 2 == 1 then text += ":kaoringo: "
-      if i % 20 == 0 then text += "\n"
     msg.send text
 
   robot.respond /タバコ$/i, (msg) ->
