@@ -19,4 +19,4 @@ text = case Time.now.hour
        when 19 then '19時だよー @shingo_wada: やめたほうがいいですよ'
        end
 
-Slack.chat_postMessage(text: text, channel: '#smoking-area', username: 'ruby_bot' )
+Slack.chat_postMessage(text: text, channel: '#smoking-area', username: '時報くん', icon_emoji: ':kaoringo:', link_names: '@shingo_wada' )
