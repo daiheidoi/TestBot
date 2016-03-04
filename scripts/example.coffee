@@ -34,8 +34,8 @@ module.exports = (robot) ->
     cnt = msg.match[1]
     text = "めっちゃ顔、りんごやん"
     for i in [0..cnt]
-      text += ":kaoringo: "
       if i % 5 == 0 then text += "\n"
+      text += ":kaoringo: "
     msg.send text
 
   robot.respond /タバコ$/i, (msg) ->
