@@ -7,16 +7,16 @@ Slack.configure do |config|
 end
 
 text = case Time.now.hour
-       when 10 then '10時だよー'
-       when 11 then '11時だよー'
-       when 12 then '12時だよー'
-       when 13 then '13時だよー'
-       when 14 then '14時だよー'
-       when 15 then '15時だよー'
-       when 16 then '16時だよー'
-       when 17 then '17時だよー'
-       when 18 then '18時だよー'
-       when 19 then '19時だよー'
+       when 10 then '10時だよー @shingo_wada: やめたほうがいいですよ'
+       when 11 then '11時だよー @shingo_wada: やめたほうがいいですよ'
+       when 12 then '12時だよー @shingo_wada: やめたほうがいいですよ'
+       when 13 then '13時だよー @shingo_wada: やめたほうがいいですよ'
+       when 14 then '14時だよー @shingo_wada: やめたほうがいいですよ'
+       when 15 then '15時だよー @shingo_wada: やめたほうがいいですよ'
+       when 16 then '16時だよー @shingo_wada: やめたほうがいいですよ'
+       when 17 then '17時だよー @shingo_wada: やめたほうがいいですよ'
+       when 18 then '18時だよー @shingo_wada: やめたほうがいいですよ'
+       when 19 then '19時だよー @shingo_wada: やめたほうがいいですよ'
        end
 
 Slack.chat_postMessage(text: text, channel: '#smoking-area', username: 'ruby_bot' )
