@@ -40,9 +40,9 @@ module.exports = (robot) ->
 
   robot.respond /ごりりんご$/i, (msg) ->
     text = "これが夢のコラボや！"
+    iwanami = ":iwanami: "
+    kaoringo = ":kaoringo: "
     for i in [0..499]
-      iwanami = ":iwanami: "
-      kaoringo = ":kaoringo: "
       if i % 50 == 0 then text += "\n"
       if i % 50 == 0 then iwanami = kaoringo
       if i % 50 == 0 then kaoringo = iwanami
