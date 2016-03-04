@@ -38,7 +38,7 @@ module.exports = (robot) ->
       text += ":kaoringo: "
     msg.send text
 
-  robot.respond /ごりりんご\s$/i, (msg) ->
+  robot.respond /ごりりんご$/i, (msg) ->
     cnt = msg.match[1]
     text = ""
     for i in [0..200]
