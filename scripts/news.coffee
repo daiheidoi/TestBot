@@ -15,7 +15,7 @@
 #   Matt McCormick
 
 module.exports = (robot) ->
-  robot.respond /news+\s+(.*)/, (msg) ->
+  robot.respond /news(?: me| on)?\s?(.*)/, (msg) ->
     query msg, (response, err) ->
       return msg.send err if err
 
@@ -36,7 +36,7 @@ module.exports = (robot) ->
 
   query = (msg, cb) ->
     if (msg.match[1] != "")
-      msg.http("https://ajax.googleapis.com/ajax/services/search/news?v=1.0&rsz=5&topic=\"#{msg.match[1]}\"")
+      msg.http("https://ajax.googleapis.com/ajax/services/search/news?v=1.0&rsz=5&q=\"#{msg.match[1]}\"")
         .get() (err, res, body) ->
           complete cb, body, err
     else
