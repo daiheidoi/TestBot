@@ -18,7 +18,7 @@ text = case Time.now.hour
        when 16 then '16時だよー @shingo_wada: 次の案件は決まりましたか？'
        when 17 then '17時だよー @shingo_wada: 家裁に行きましたか？'
        when 18 then '18時だよー @shingo_wada: 中林さんのお話はどうするんですか？'
-       when 19 then '19時だよー @shingo_wada: 文鳥ですっwうちのかわいいペット'
+       when 19 then '19時だよー @shingo_wada: 文鳥ですっwうちのかわいいペット♡'
        end
 
 Slack.chat_postMessage(text: text, channel: '#smoking-area', username: '時報くん', icon_emoji: ':kaoringo:', link_names: '@shingo_wada' )
