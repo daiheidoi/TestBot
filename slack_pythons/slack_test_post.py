@@ -11,7 +11,7 @@ params = {'token':'xoxp-15751162311-15745376292-16149053830-83d5f684fd',   # ト
           'text': ''    # 送信するテキスト
 }
 
-params['text'] = '僕が ' + sys.argv[2] +  ' ファイルは' + sys.argv[1] + 'だ！！'
+params['text'] = '僕が' + sys.argv[2] +  'ファイルは' + sys.argv[1] + 'だ！！'
 params = urllib.urlencode(params)
 
 req = urllib2.Request(url)
