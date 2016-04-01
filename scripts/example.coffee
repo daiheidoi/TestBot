@@ -30,17 +30,17 @@ module.exports = (robot) ->
     text = "顔、りんごやん :kaoringo:"
     msg.send text 
 
-  robot.hear /【朗報】+(\S)$/i, (msg) ->
+  robot.respond /【朗報】\s+(\S)$/i, (msg) ->
     roho = msg.match[1]
     text = "`【朗報】" + roho + "`" + "\n" + "大事なことなので2回言いますた。"
     msg.send text
 
-  robot.hear /【吉報】+(\S)$/i, (msg) ->
+  robot.respond /【吉報】\s+(\S)$/i, (msg) ->
     kippo = msg.match[1]
     text = "`【吉報】" + kippo + "`" + "\n" + "大事なことなので2回言いますた。"
     msg.send text 
 
-  robot.hear /【悲報】+(\S)$/i, (msg) ->
+  robot.respond /【悲報】\s+(\S)$/i, (msg) ->
     hiho = msg.match[1]
     text = "`【悲報】" + hiho + "`" + "\n" + "大事なことなので2回言いますた。\n2倍悲しいね。"
     msg.send text 
