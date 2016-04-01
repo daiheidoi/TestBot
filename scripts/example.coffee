@@ -39,7 +39,7 @@ module.exports = (robot) ->
   robot.hear /【悲報】+(.*)$/i, (msg) ->
     msg.send "`【悲報】" + msg.match[1] + "`" + "\n" + "2倍悲しいですが、\n" + "大事なことなので2回言いますた。"
 
-  robot.respond /かおりんご\s+bomb\s+(\S+)$/i, (msg) ->
+  robot.respond /:kaoringo:\s+bomb\s+(\S+)$/i, (msg) ->
     cnt = msg.match[1]
     text = "めっちゃ顔、りんごやん"
     for i in [0..cnt]
@@ -55,7 +55,7 @@ module.exports = (robot) ->
       text += ":buncho: "
     msg.send text
 
-  robot.respond /ごりりんご$/i, (msg) ->
+  robot.respond /:kaoringo: :iwanami:$/i, (msg) ->
     text = "これが夢のコラボや！"
     iwanami = ":iwanami: "
     kaoringo = ":kaoringo: "
