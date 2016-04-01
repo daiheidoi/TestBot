@@ -35,8 +35,8 @@ module.exports = (robot) ->
     text = """`【朗報】""" + roho + """`""" + "\n" + "大事なことなので2回言いますた。"
     msg.send text
 
-  robot.hear /【吉報】$/i, (msg) ->
-    msg.send "`【吉報】`"
+  robot.hear /【吉報】+(.*)$/i, (msg) ->
+    msg.send "`【吉報】" + msg.match[1] + "`"
 
   robot.respond /悲報\s+(\S)$/i, (msg) ->
     hiho = msg.match[1]
