@@ -221,7 +221,7 @@ module.exports = (robot) ->
   robot.respond /(うんこ|うんち)$/i, (msg) ->
     msg.send "ぶりーーーーーーっ :poop: :poop: :poop: :poop: "
 
-  robot.respond /:kaoringo:$/i, (msg) ->
+  robot.respond /:kaoringo:\s$/i, (msg) ->
     text = "顔、りんごやん :kaoringo:"
     msg.send text 
 
