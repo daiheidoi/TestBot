@@ -37,8 +37,7 @@ module.exports = (robot) ->
 
   robot.respond /吉報\s+(\S)$/i, (msg) ->
     kippo = msg.match[1]
-    text = """`【吉報】""" + kippo + """`""" + "\n" + "大事なことなので2回言いますた。"
-    msg.send text 
+    msg.send kippo
 
   robot.respond /悲報\s+(\S)$/i, (msg) ->
     hiho = msg.match[1]
