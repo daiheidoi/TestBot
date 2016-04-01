@@ -47,6 +47,14 @@ module.exports = (robot) ->
       text += ":kaoringo: "
     msg.send text
 
+  robot.respond /:buncho:\s+bomb\s+(\S+)$/i, (msg) ->
+    cnt = msg.match[1]
+    text = "めっちゃ和田さんの鳥やん"
+    for i in [0..cnt]
+      if i % 10 == 0 then text += "\n"
+      text += ":buncho: "
+    msg.send text
+
   robot.respond /ごりりんご$/i, (msg) ->
     text = "これが夢のコラボや！"
     iwanami = ":iwanami: "
