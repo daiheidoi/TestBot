@@ -11,7 +11,7 @@ $mid = "u72e361d4b846000f48c81f9dd04a538f";
 // メッセージ受信
 
 // ユーザ情報取得
-api_get_user_profile_request($mid);
+api_get_user_profile_request("u72e361d4b846000f48c81f9dd04a538f");
 
 $content = <<< EOM
         "contentType":1,
