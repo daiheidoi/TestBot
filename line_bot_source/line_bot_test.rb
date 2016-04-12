@@ -4,7 +4,7 @@ require 'json'
 require 'rest-client'
 
 class App < Sinatra::Base
-  post './callback' do
+  post '/line_bot_source/callback' do
     params = JSON.parse(request.body.read)
 
     params['result'].each do |msg|
