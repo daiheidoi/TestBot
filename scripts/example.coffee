@@ -223,6 +223,10 @@ module.exports = (robot) ->
 
   robot.respond /:kaoringo:$/i, (msg) ->
     text = "顔、りんごやん :kaoringo:"
+    msg.send text
+
+  robot.respond /中林$/i, (msg) ->
+    text = "`大森ー大きさ1ー木1` やで"
     msg.send text 
 
   robot.respond /比企ペディア$/i, (msg) ->
