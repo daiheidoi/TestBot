@@ -226,7 +226,7 @@ module.exports = (robot) ->
     msg.send text
 
   robot.respond /中林$/i, (msg) ->
-    text = "`大森ー大きさ1ー木1` やで"
+    text = "大森ー大きさ1ー木1"
     msg.send text 
 
   robot.respond /比企ペディア$/i, (msg) ->
