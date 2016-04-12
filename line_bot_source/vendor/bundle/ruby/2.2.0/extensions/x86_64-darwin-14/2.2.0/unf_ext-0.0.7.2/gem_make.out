@@ -1,0 +1,12 @@
+/usr/local/opt/ruby/bin/ruby -r ./siteconf20160411-51286-kh96f8.rb extconf.rb
+checking for main() in -lstdc++... yes
+creating Makefile
+
+make "DESTDIR=" clean
+
+make "DESTDIR="
+compiling unf.cc
+linking shared-object unf_ext.bundle
+
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 unf_ext.bundle ./.gem.20160411-51286-lp5i64
