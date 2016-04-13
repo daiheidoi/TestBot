@@ -1,6 +1,6 @@
-Rails.application.routes.draw do
-  post '/line_bot_source/callback' => 'webhook#callback'
-end
+#Rails.application.routes.draw do
+#  post '/line_bot_source/callback' => 'webhook#callback'
+#end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
