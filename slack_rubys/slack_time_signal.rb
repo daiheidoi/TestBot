@@ -3,7 +3,7 @@
 require "slack"
 
 Slack.configure do |config|
-      config.token = 'xoxp-15751162311-15745376292-22111567315-6dea56412b'
+      config.token = 'xoxp-15751162311-15745376292-35448987459-53e17d59e7'
 end
 
 

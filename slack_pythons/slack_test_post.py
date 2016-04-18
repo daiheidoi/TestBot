@@ -6,7 +6,7 @@ import sys
 
 url = "https://slack.com/api/chat.postMessage"
 
-params = {'token':'xoxp-15751162311-15745376292-16149053830-83d5f684fd',   # トークン
+params = {'token':'xoxp-15751162311-15745376292-35448987459-53e17d59e7',   # トークン
           'channel':'C0FT2FNUE', # チャンネルID
           'text': ''    # 送信するテキスト
 }

@@ -1,7 +1,7 @@
 <?php
  
 function postSlack($txt) {
-	$token = "xoxp-15751162311-15745376292-16149053830-83d5f684fd";
+	$token = "xoxp-15751162311-15745376292-35448987459-53e17d59e7";
 	$icon_emoji = ":doi_hanco:";
 	$channel = "C0FN0GZ51";
 	$username = "php_bot"; 

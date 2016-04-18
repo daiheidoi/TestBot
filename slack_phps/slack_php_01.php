@@ -1,7 +1,7 @@
 <?php
 $incomingUrl = 'https://slack.com/api/chat.postMessage'; // 発行されたURL
 $payload = array(
-	'token' => 'xoxp-15751162311-15745376292-16149053830-83d5f684fd',
+	'token' => 'xoxp-15751162311-15745376292-35448987459-53e17d59e7',
 	'text' => '投稿テスト', // メッセージ（必須）
 	'username' => 'php_bot', // 投稿者（サービス）名
 	'icon_emoji' => ':doi_hanco:', // 投稿者名のアイコン http://www.emoji-cheat-sheet.com/
