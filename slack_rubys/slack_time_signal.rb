@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
 require "slack"
+require "json/ext"
 
 Slack.configure do |config|
       config.token = 'xoxp-15751162311-15745376292-35448987459-53e17d59e7'
@@ -21,4 +22,4 @@ text = case Time.now.hour
        when 19 then '19時だよー @shingo_wada: やめた方がいいですよ'
        end
 
-Slack.chat_postMessage(text: text, channel: '#smoking-area', username: '時報くん', icon_emoji: ':kaoringo:', link_names: '@shingo_wada' )
+Slack.chat_postMessage(text: text, attachments: Hash[:title, 'ちんこ', :title_link, 'ちんこ二倍', :text, 'ちんこ億1000万'], channel: '#smoking-area', username: '時報くん', icon_emoji: ':kaoringo:', link_names: '@shingo_wada' )
