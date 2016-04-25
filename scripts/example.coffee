@@ -270,7 +270,7 @@ module.exports = (robot) ->
 
   robot.respond /wada\s+bomb\s+(\S+)$/i, (msg) ->
     cnt = msg.match[1]
-    text = "めっちゃ和田さんやん"
+    text = "一個多いやん和田さんやん"
     for i in [0..cnt]
       if i % 10 == 0 then text += "\n"
       text += "わだ"
