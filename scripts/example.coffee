@@ -340,6 +340,30 @@ module.exports = (robot) ->
 ```
   """
 
+  robot.respond /chinco\s+bomb\s+(\S+)$/i, (msg) ->
+    cnt = msg.match[1]
+    text = """
+```
+　　　　　　　　　　　　　　_i⌒r-.、　　　　 
+　　　　　　　　　　　,,-'´　　　ノ 
+　　　　　　　　　　./　　　　　.l 
+　　　　　　　　　 /　　　　　　 l　　　　　チ 
+　　　((　 ◯　　.ｌ　　　　　　　 l　　　　　ン 
+　　　　　 .ヽヽ、l　 i　　　　　 .l　　　　　 ポ 
+　　　　　　　＼ヽ　l　　　　　　l　　　))　 コ 
+　　　　　 ,-'´￣｀ゝ´￣｀ヽ　 ﾉl　　　　　 ポ 
+　　 　 .,'　　　 .,'　　　◯ニ.ンl　　　　　 .ン 
+　　　　 i　　　　i　　　　　　　 .i 
+　　　　 ヽ、　　丶　　　　　 .ノ 
+　　　　　　｀'ー-.'´｀'ー- ''´i .| 
+　　　　　　　　凵　　　　　 .凵
+```
+  """
+    for i in [0..cnt]
+      if i % 10 == 0 then text += "\n"
+      text += text
+    msg.send text
+
   robot.hear /昼飯どうする？$/i, (msg) ->
     msg.send "ラーメン一択やろ！\n" + msg.random ramens
 
