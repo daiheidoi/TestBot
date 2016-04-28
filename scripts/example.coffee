@@ -340,8 +340,7 @@ module.exports = (robot) ->
 ```
   """
 
-  robot.respond /chinco\s+bomb\s+(\S+)$/i, (msg) ->
-    cnt = msg.match[1]
+  robot.respond /chinco\s+bomb$/i, (msg) ->
     text = """
 ```
 　　　　　　　　　　　　　　_i⌒r-.、　　　　 
@@ -359,7 +358,7 @@ module.exports = (robot) ->
 　　　　　　　　凵　　　　　 .凵
 ```
   """
-    for i in [0..cnt]
+    for i in [0..5]
       text += "\n"
       text += text
     msg.send text
