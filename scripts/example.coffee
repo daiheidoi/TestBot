@@ -360,7 +360,7 @@ module.exports = (robot) ->
 ```
   """
     for i in [0..cnt]
-      if i % 10 == 0 then text += "\n"
+      text += "\n"
       text += text
     msg.send text
 
