@@ -358,7 +358,7 @@ module.exports = (robot) ->
 　　　　　　　　凵　　　　　 .凵
 ```
   """
-    for i in [0..3]
+    for i in [0..2]
       text += "\n"
       text += text
     msg.send text
