@@ -15,9 +15,9 @@ wadalib = [
 
 module.exports = (robot) -> 
   # *(sec) *(min) *(hour) *(day) *(month) *(day of the week)
-  new cronJob('0 0-59 * * * *', () ->
+  new cronJob('0 0 * * * *', () ->
     currentTime = new Date
     currentTime.setTime(currentTime.getTime() + 9 * 60 * 60 * 1000)
     envelope = room: "#smoking-area"
-    robot.send envelope, "#{currentTime.getHours()}時#{currentTime.getMinutes()}分だよー @shingo_wada: #{wadalib[random(wadalib.length - 1)]}"
+    robot.send envelope, "【時報】 #{currentTime.getHours()}時#{currentTime.getMinutes()}分だよー @shingo_wada: #{wadalib[random(wadalib.length - 1)]}"
   ).start()
