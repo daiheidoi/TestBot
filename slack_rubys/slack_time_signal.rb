@@ -4,7 +4,7 @@ require "slack"
 require "json/ext"
 
 Slack.configure do |config|
-      config.token = 'xoxp-15751162311-15745376292-43518316786-d7b3cad8bf'
+      config.token = 'xoxp-15751162311-15745376292-43509885799-cf4c2387bb'
 end
 
 
