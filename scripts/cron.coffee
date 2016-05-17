@@ -19,5 +19,5 @@ module.exports = (robot) ->
     currentTime = new Date
     currentTime.setTime(currentTime.getTime() + 9 * 60 * 60 * 1000)
     envelope = room: "#smoking-area"
-    robot.send envelope, "【時報】 #{currentTime.getHours()}時#{currentTime.getMinutes()}分だよー @shingo_wada: #{wadalib[random(wadalib.length - 1)]}"
+    robot.send envelope, "【時報】 #{currentTime.getHours()}時だよー @shingo_wada: #{wadalib[random(wadalib.length - 1)]}"
   ).start()
