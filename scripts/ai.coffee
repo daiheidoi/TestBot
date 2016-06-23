@@ -39,7 +39,7 @@ getCharacterBotRes = (msg, type) ->
 
 module.exports = (robot) ->
   # 自動会話
-  robot.hear /ai (.*)$/i, (msg) ->
+  robot.hear /ai\s+(\S+)$/i, (msg) ->
     user_name = msg.message.user.name
     requestUrl = endPointUrl + "chat"
     msg
@@ -54,19 +54,19 @@ module.exports = (robot) ->
         msg.send result
 
   # 猫言葉
-  robot.hear /cat (.*)$/i, (msg) ->    
+  robot.hear /cat\s+(\S+)$/i, (msg) ->    
     getCharacterBotRes msg, "cat"
 
   # 犬言葉
-  robot.hear /dog (.*)$/i, (msg) ->
+  robot.hear /dog\s+(\S+)$/i, (msg) ->
     getCharacterBotRes msg, "dog"
 
   # じじい言葉
-  robot.hear /jijii (.*)$/i, (msg) ->
+  robot.hear /jijii\s+(\S+)$/i, (msg) ->
     getCharacterBotRes msg, "roujin"
 
   # 氏名解析
-  robot.hear /name (.*)$/i, (msg) ->
+  robot.hear /name\s+(\S+)$/i, (msg) ->
     msg.send msg.match[1]
     requestUrl = endPointUrl + "name"
     msg
@@ -102,7 +102,7 @@ module.exports = (robot) ->
 
 
   # 形態解析
-  robot.hear /decompose (.*)$/i, (msg) ->
+  robot.hear /decompose\s+(\S+)$/i, (msg) ->
     requestUrl = endPointUrl + "decompose"
     msg
       .http(requestUrl)
