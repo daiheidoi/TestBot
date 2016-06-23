@@ -33,8 +33,8 @@ getCharacterBotRes = (msg, type, url = endPointUrl) ->
       .get() (err, res, body) ->
         if err
           return 'ai取り込み失敗しました'
-        result = JSON.parse(body)
-        return result
+        result = JSON.parse(res)
+        return result.result
 
 # 自動会話
 module.exports = (robot) ->
@@ -49,7 +49,7 @@ module.exports = (robot) ->
         if err
           msg.send('ai取り込み失敗しました')
           return
-        result = JSON.parse(body)
+        result = JSON.parse(res)
         msg.send result.status
 
 # 猫言葉
