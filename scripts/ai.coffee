@@ -117,7 +117,7 @@ module.exports = (robot) ->
           return
         result = JSON.parse(body)
         sendMsg = ""
-        for data in result
+        for data in result.result
           sendMsg += "#{data.surface}は\n"
           sendMsg += "#{data.pos}で、#{result[i].yomi}って読むやろ\n"
           if result[i].ctype.length != 0
