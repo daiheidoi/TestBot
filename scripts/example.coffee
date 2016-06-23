@@ -241,16 +241,16 @@ module.exports = (robot) ->
   robot.hear /【悲報】+(.*)$/i, (msg) ->
     msg.send "`【悲報】" + msg.match[1] + "`" + "\n" + "2倍悲しいですが、\n" + "大事なことなので2回言いますた。"
 
-#  robot.hear /(.*)+(;|；|><|＞＜|orz|OTL)+(.*)$/i, (msg) ->
-#    msg.send """
-#```
-#　　 _, ,_
-#　　(　ﾟДﾟ) 　
-#　　(　 ∩ミ　　駄目だこいつ
-#　 　|　ωつ☆    早くなんとかしないと・・・・・・
-#　 　し ⌒Ｊ　|
-#```
-#    """
+  robot.hear /(.*)+(;|；|><|＞＜|orz|OTL)+(.*)$/i, (msg) ->
+    msg.send """
+```
+　　 _, ,_
+　　(　ﾟДﾟ) 　
+　　(　 ∩ミ　　駄目だこいつ
+　 　|　ωつ☆    早くなんとかしないと・・・・・・
+　 　し ⌒Ｊ　|
+```
+    """
 
   robot.respond /:kaoringo:\s+bomb\s+(\S+)$/i, (msg) ->
     cnt = msg.match[1]
