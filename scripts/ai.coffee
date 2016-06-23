@@ -106,11 +106,10 @@ module.exports = (robot) ->
 # 形態解析
 module.exports = (robot) ->
   robot.hear /decompose\s+(\S+)$/i, (msg) ->
-    message = encodeURIComponent(msg.match[1])
     requestUrl = endPointUrl + "decompose"
     msg
       .http(requestUrl)
-      .query(key: key, message: message, detail: "true")
+      .query(key: key, message: msg.match[1], detail: "true")
       .header('Accept', 'application/json')
       .get() (err, res, body) ->
         if err
