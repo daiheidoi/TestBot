@@ -100,7 +100,6 @@ module.exports = (robot) ->
           suspendNickname += nickname + "\n"
         msg.send imaginGender + "\n" + suspendNickname
 
-
   # 形態解析
   robot.hear /decompose\s+(\S+)$/i, (msg) ->
     requestUrl = endPointUrl + "decompose"
