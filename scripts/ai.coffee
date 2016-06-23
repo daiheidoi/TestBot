@@ -78,22 +78,22 @@ module.exports = (robot) ->
           msg.send('ai取り込み失敗しました')
           return
         result = JSON.parse(body).result
-        suspendNickname = ""
+        suspendNickname = "オススメニックネームは\n"
         imaginGender = ""
         gender = ""
-        if result.gender == "1"
+        if result.gender == 1
           gender = "男"
         else
           gender = "女"
-        if result.gender_accuracy == "1"
+        if result.gender_accuracy == 1
           imaginGender = "#{gender}かな。。。いや自信ないわw"
-        if result.gender_accuracy == "2"
+        if result.gender_accuracy == 2
           imaginGender = "多分、#{gender}やろ"
-        if result.gender_accuracy == "3"
+        if result.gender_accuracy == 3
           imaginGender = "#{gender}やろ"
-        if result.gender_accuracy == "4"
+        if result.gender_accuracy == 4
           imaginGender = "#{gender}やな。そうじゃなかったら泣くわ"
-        if result.gender_accuracy == "5"
+        if result.gender_accuracy == 5
           imaginGender = "#{gender}すぎてワロリンヌ"
         
         for nickname in result.nickname
