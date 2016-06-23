@@ -40,11 +40,10 @@ getCharacterBotRes = (msg, type) ->
 # 自動会話
 module.exports = (robot) ->
   robot.hear /ai\s+(\S+)$/i, (msg) ->
-    user_name = msg.message.user.name
     requestUrl = endPointUrl + "chat"
     msg
       .http(requestUrl)
-      .query(key: key, bot_name: bot_name, platform: platform, user_name: user_name, message: msg.match[1])
+      .query(key: key, message: msg.match[1])
       .header('Accept', 'application/json')
       .get() (err, res, body) ->
         if err
