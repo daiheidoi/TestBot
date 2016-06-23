@@ -32,9 +32,10 @@ getCharacterBotRes = (msg, type) ->
       .header('Accept', 'application/json')
       .get() (err, res, body) ->
         if err
-          return 'ai取り込み失敗しました'
+          msg.send result
+          return
         result = JSON.parse(body).result
-        return result
+        msg.send result
 
 module.exports = (robot) ->
   # 自動会話
@@ -62,7 +63,7 @@ module.exports = (robot) ->
 
   # じじい言葉
   robot.hear /jijii (.*)$/i, (msg) ->
-    msg.send getCharacterBotRes msg, "jijii"
+    msg.send getCharacterBotRes msg, "roujin"
 
   # 氏名解析
   robot.hear /name (.*)$/i, (msg) ->
