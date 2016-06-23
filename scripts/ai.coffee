@@ -115,7 +115,7 @@ module.exports = (robot) ->
         if err
           msg.send('ai取り込み失敗しました')
           return
-        result = JSON.parse(body).result
+        result = JSON.parse(body)
         sendMsg = ""
         for i in [0..result.length]
           sendMsg += "#{result[i].surface}は\n"
