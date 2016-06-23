@@ -120,15 +120,15 @@ module.exports = (robot) ->
         for data in result
           sendMsg += "`#{data.surface}`は\n"
           sendMsg += "#{data.pos}で、#{data.yomi}って読むやろ\n"
-          if data.pos1?
+          if data.pos1?.trim()
             sendMsg += "さらにいうと、#{data.pos1}で\n"
-          if data.pos2?
-            sendMsg += "またさらにいうと、#{data.pos2}であって\n"
-          if data.pos3?
-            sendMsg += "もう勘弁してくれって思うくらい、#{data.pos3}\n"
-          if data.ctype?
+          if data.pos2?.trim()
+            sendMsg += "またさらにいうと、#{data.pos2}で\n"
+          if data.pos3?.trim()
+            sendMsg += "んでもーさらにもっちゃうと、#{data.pos3}で\n"
+          if data.ctype?.trim()
             sendMsg += "#{data.ctype}とか\n"
-          if data.cform?
+          if data.cform?.trim()
             sendMsg += "#{data.cform}って活用できるやろ\n"
 
 
