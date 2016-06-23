@@ -118,7 +118,7 @@ module.exports = (robot) ->
         result = JSON.parse(body).result
         sendMsg = ""
         for data in result
-          sendMsg += "`#{data.surface}`は\n"
+          sendMsg += "```#{data.surface}は\n"
           sendMsg += "#{data.pos}で、#{data.yomi}って読むやろ\n"
           if data.pos1?.trim()
             sendMsg += "さらにいうと、#{data.pos1}で\n"
@@ -130,7 +130,7 @@ module.exports = (robot) ->
             sendMsg += "#{data.ctype}とか\n"
           if data.cform?.trim()
             sendMsg += "#{data.cform}って活用できるやろ\n"
-
+          sendMsg += "```"
 
         sendMsg += "どう？当たってるやろ"
         msg.send sendMsg
