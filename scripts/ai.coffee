@@ -80,7 +80,7 @@ module.exports = (robot) ->
       .header('Accept', 'application/json')
       .get() (err, res, body) ->
         if err
-         msg.send('ai取り込み失敗しました')
+          msg.send('ai取り込み失敗しました')
           return
         result = JSON.parse(body)
         suspendNickname = ""
