@@ -26,10 +26,9 @@ platform= "slack"
 
 getCharacterBotRes = (msg, type, url = endPointUrl) ->
     message = encodeURIComponent(msg.match[1])
-    requestUrl = url + 'character'
+    requestUrl = url + "character?key=#{key}&character_type=#{type}&message=#{message}"
     msg
       .http(requestUrl)
-      .query(key: key, character_type: type, message: message)
       .header('Accept', 'application/json')
       .get() (err, res, body) ->
         if err
@@ -42,10 +41,9 @@ module.exports = (robot) ->
   robot.hear /ai\s+(\S+)$/i, (msg) ->
     message = encodeURIComponent(msg.match[1])
     user_name = msg.message.user.name
-    requestUrl = endPointUrl + 'chat'
+    requestUrl = endPointUrl + "chat?key=#{key}&bot_name=#{bot_name}&platform=#{platform}&user_name=#{user_name}&message=#{message}"
     msg
       .http(requestUrl)
-      .query(key: key, bot_name: bot_name, platform: platform, user_name: user_name, message: message)
       .header('Accept', 'application/json')
       .get() (err, res, body) ->
         if err
@@ -73,10 +71,9 @@ module.exports = (robot) ->
 module.exports = (robot) ->
   robot.hear /name\s+(\S+)$/i, (msg) ->
     name = encodeURIComponent(msg.match[1])
-    requestUrl = endPointUrl + 'name'
+    requestUrl = endPointUrl + "name?key=#{key}&name=#{name}"
     msg
       .http(requestUrl)
-      .query(key: key, name: name)
       .header('Accept', 'application/json')
       .get() (err, res, body) ->
         if err
@@ -110,10 +107,9 @@ module.exports = (robot) ->
 module.exports = (robot) ->
   robot.hear /decompose\s+(\S+)$/i, (msg) ->
     message = encodeURIComponent(msg.match[1])
-    requestUrl = endPointUrl + 'decompose'
+    requestUrl = endPointUrl + "decompose?key=#{key}&message=#{message}&detail=true"
     msg
       .http(requestUrl)
-      .query(key: key, message: message, detail: "true")
       .header('Accept', 'application/json')
       .get() (err, res, body) ->
         if err
