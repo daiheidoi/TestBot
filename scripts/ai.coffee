@@ -119,7 +119,7 @@ module.exports = (robot) ->
         sendMsg = ""
         for data in result.result
           sendMsg += "#{data.surface}は\n"
-          sendMsg += "#{data.pos}で、#{result[i].yomi}って読むやろ\n"
+          sendMsg += "#{data.pos}で、#{data.yomi}って読むやろ\n"
           if data.ctype.length != 0
             sendMsg += "#{data.ctype}とか\n"
           if data.cform.length != 0
