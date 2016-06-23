@@ -24,11 +24,12 @@ key = process.env.HUBOT_USER_LOCAL_AI_KEY
 bot_name = process.env.HUBOT_SLACK_BOTNAME
 platform= "slack"
 
-getCharacterBotRes = (msg, type, url = endPointUrl) ->
-    message = encodeURIComponent(msg.match[1])
-    requestUrl = url + "character?key=#{key}&character_type=#{type}&message=#{message}"
+getCharacterBotRes = (msg, type) ->
+    
+    requestUrl = endPointUrl + "character"
     msg
       .http(requestUrl)
+      .query(key: key, character_type: type, message: msg.match[1])
       .header('Accept', 'application/json')
       .get() (err, res, body) ->
         if err
@@ -39,11 +40,11 @@ getCharacterBotRes = (msg, type, url = endPointUrl) ->
 # 自動会話
 module.exports = (robot) ->
   robot.hear /ai\s+(\S+)$/i, (msg) ->
-    message = encodeURIComponent(msg.match[1])
     user_name = msg.message.user.name
-    requestUrl = endPointUrl + "chat?key=#{key}&bot_name=#{bot_name}&platform=#{platform}&user_name=#{user_name}&message=#{message}"
+    requestUrl = endPointUrl + "chat"
     msg
       .http(requestUrl)
+      .query(key: key, bot_name: bot_name, platform: platform, user_name: user_name, message: msg.match[1])
       .header('Accept', 'application/json')
       .get() (err, res, body) ->
         if err
@@ -70,10 +71,10 @@ module.exports = (robot) ->
 # 氏名解析
 module.exports = (robot) ->
   robot.hear /name\s+(\S+)$/i, (msg) ->
-    name = encodeURIComponent(msg.match[1])
-    requestUrl = endPointUrl + "name?key=#{key}&name=#{name}"
+    requestUrl = endPointUrl + "name"
     msg
       .http(requestUrl)
+      .query(key: key, name: msg.match[1])
       .header('Accept', 'application/json')
       .get() (err, res, body) ->
         if err
@@ -118,7 +119,7 @@ module.exports = (robot) ->
         result = JSON.parse(body).result
         sendMsg = ""
         for data in result
-          sendMsg += "```#{data.surface}は\n"
+          sendMsg += "`#{data.surface}`は\n"
           sendMsg += "#{data.pos}で、#{data.yomi}って読むやろ\n"
           if data.pos1?.trim()
             sendMsg += "さらにいうと、#{data.pos1}で\n"
@@ -130,7 +131,7 @@ module.exports = (robot) ->
             sendMsg += "#{data.ctype}とか\n"
           if data.cform?.trim()
             sendMsg += "#{data.cform}って活用できるやろ\n"
-          sendMsg += "```"
+          sendMsg += "\n"
 
         sendMsg += "どう？当たってるやろ"
         msg.send sendMsg
