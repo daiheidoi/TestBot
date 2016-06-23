@@ -85,7 +85,11 @@ module.exports = (robot) ->
         result = JSON.parse(body)
         suspendNickname = ""
         imaginGender = ""
-        gender = if result.gender == 1 then "男" else "女"
+        gender = ""
+        if result.gender == 1
+          gender = "男"
+        else
+          gender = "女"
         if result.gender_accuracy == "1"
           imaginGender = "#{gender}かな。。。いや自信ないわw"
         if result.gender_accuracy == "2"
