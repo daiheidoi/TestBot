@@ -26,7 +26,6 @@ platform= "slack"
 
 getCharacterBotRes = (msg, type) ->  
     requestUrl = endPointUrl + "character"
-    msg.send msg.match[1]
     msg
       .http(requestUrl)
       .query(key: key, character_type: type, message: msg.match[1])
@@ -35,13 +34,11 @@ getCharacterBotRes = (msg, type) ->
         if err
           return 'ai取り込み失敗しました'
         result = JSON.parse(body).result
-        msg.send msg.match[1]
         return result
 
-# 自動会話
 module.exports = (robot) ->
+  # 自動会話
   robot.hear /ai (.*)$/i, (msg) ->
-    msg.send msg.match[1]
     user_name = msg.message.user.name
     requestUrl = endPointUrl + "chat"
     msg
@@ -53,26 +50,21 @@ module.exports = (robot) ->
           msg.send('ai取り込み失敗しました')
           return
         result = JSON.parse(body).result
-        msg.send msg.match[1]
         msg.send result
 
-# 猫言葉
-module.exports = (robot) ->
+  # 猫言葉
   robot.hear /cat (.*)$/i, (msg) ->    
     msg.send getCharacterBotRes msg, "cat"
 
-# 犬言葉
-module.exports = (robot) ->
+  # 犬言葉
   robot.hear /dog (.*)$/i, (msg) ->
     msg.send getCharacterBotRes msg, "dog"
 
-# じじい言葉
-module.exports = (robot) ->
+  # じじい言葉
   robot.hear /jijii (.*)$/i, (msg) ->
     msg.send getCharacterBotRes msg, "jijii"
 
-# 氏名解析
-module.exports = (robot) ->
+  # 氏名解析
   robot.hear /name (.*)$/i, (msg) ->
     msg.send msg.match[1]
     requestUrl = endPointUrl + "name"
@@ -105,12 +97,10 @@ module.exports = (robot) ->
         
         for nickname in result.nickname
           suspendNickname += nickname + "\n"
-        msg.send msg.match[1]
         msg.send imaginGender + "\n" + suspendNickname
 
 
-# 形態解析
-module.exports = (robot) ->
+  # 形態解析
   robot.hear /decompose (.*)$/i, (msg) ->
     requestUrl = endPointUrl + "decompose"
     msg
