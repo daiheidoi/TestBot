@@ -107,9 +107,10 @@ module.exports = (robot) ->
 module.exports = (robot) ->
   robot.hear /decompose\s+(\S+)$/i, (msg) ->
     message = encodeURIComponent(msg.match[1])
-    requestUrl = endPointUrl + "decompose?key=#{key}&message=#{message}&detail=true"
+    requestUrl = endPointUrl + "decompose"
     msg
       .http(requestUrl)
+      .query(key: key, message: message, detail: "true")
       .header('Accept', 'application/json')
       .get() (err, res, body) ->
         if err
@@ -120,10 +121,17 @@ module.exports = (robot) ->
         for data in result
           sendMsg += "`#{data.surface}`は\n"
           sendMsg += "#{data.pos}で、#{data.yomi}って読むやろ\n"
+          if data.pos1?
+            sendMsg += "さらにいうと、#{data.pos1}で\n"
+          if data.pos2?
+            sendMsg += "またさらにいうと、#{data.pos2}であって\n"
+          if data.pos3?
+            sendMsg += "もう勘弁してくれって思うくらい、#{data.pos3}\n"
           if data.ctype?
             sendMsg += "#{data.ctype}とか\n"
           if data.cform?
             sendMsg += "#{data.cform}って活用できるやろ\n"
+
 
         sendMsg += "どう？当たってるやろ"
         msg.send sendMsg
