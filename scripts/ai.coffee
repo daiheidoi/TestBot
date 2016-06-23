@@ -126,7 +126,12 @@ module.exports = (robot) ->
           sendMsg += "#{result[i].pos}で、#{result[i].yomi}って読むやろ\n"
           if result[i].ctype.length != 0
             sendMsg += "#{result[i].ctype}とか\n"
-          if result[i].cform.length != 0 then
+          if result[i].cform.length != 0
             sendMsg += "#{result[i].cform}って活用できるやろ\n"
+          
         sendMsg += "どう？当たってるやろ"
-        msg.send sendMsg
+        msg.send """
+```
+#{sendMsg}
+```
+  """
