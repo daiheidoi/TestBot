@@ -55,15 +55,15 @@ module.exports = (robot) ->
 
   # 猫言葉
   robot.hear /cat (.*)$/i, (msg) ->    
-    msg.send getCharacterBotRes msg, "cat"
+    getCharacterBotRes msg, "cat"
 
   # 犬言葉
   robot.hear /dog (.*)$/i, (msg) ->
-    msg.send getCharacterBotRes msg, "dog"
+    getCharacterBotRes msg, "dog"
 
   # じじい言葉
   robot.hear /jijii (.*)$/i, (msg) ->
-    msg.send getCharacterBotRes msg, "roujin"
+    getCharacterBotRes msg, "roujin"
 
   # 氏名解析
   robot.hear /name (.*)$/i, (msg) ->
