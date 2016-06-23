@@ -19,23 +19,23 @@
 # Author:
 #  daiheidoi
 
-endPointUrl = 'https://chatbot-api.userlocal.jp/api/'
-key = process.env.HUBOT_USER_LOCAL_AI_KEY
-bot_name = process.env.HUBOT_SLACK_BOTNAME
-platform= "slack"
+// endPointUrl = 'https://chatbot-api.userlocal.jp/api/'
+// key = process.env.HUBOT_USER_LOCAL_AI_KEY
+// bot_name = process.env.HUBOT_SLACK_BOTNAME
+// platform= "slack"
 
-getCharacterBotRes = (msg, type, url = endPointUrl) ->
-    message = encodeURIComponent(msg.match[1])
-    requestUrl = url + 'character'
-    msg
-      .http(requestUrl)
-      .query($key: key, $character_type: type, $message: message)
-      .header('Accept', 'application/json')
-      .get() (err, res, body) ->
-        if err
-          return 'ai取り込み失敗しました'
-        result = JSON.parse(body)
-        return result
+// getCharacterBotRes = (msg, type, url = endPointUrl) ->
+//     message = encodeURIComponent(msg.match[1])
+//     requestUrl = url + 'character'
+//     msg
+//       .http(requestUrl)
+//       .query($key: key, $character_type: type, $message: message)
+//       .header('Accept', 'application/json')
+//       .get() (err, res, body) ->
+//         if err
+//           return 'ai取り込み失敗しました'
+//         result = JSON.parse(body)
+//         return result
 
 // // 自動会話
 // module.exports = (robot) ->
