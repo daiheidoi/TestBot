@@ -26,7 +26,7 @@ platform= "slack"
 
 getCharacterBotRes = (msg, type) ->  
     requestUrl = endPointUrl + "character"
-    console.log(msg.match[1])
+    msg.send msg.match[1]
     msg
       .http(requestUrl)
       .query(key: key, character_type: type, message: msg.match[1])
@@ -35,12 +35,13 @@ getCharacterBotRes = (msg, type) ->
         if err
           return 'ai取り込み失敗しました'
         result = JSON.parse(body).result
+        msg.send msg.match[1]
         return result
 
 # 自動会話
 module.exports = (robot) ->
   robot.hear /ai\s+(\S+)$/i, (msg) ->
-    console.log(msg.match[1])
+    msg.send msg.match[1]
     user_name = msg.message.user.name
     requestUrl = endPointUrl + "chat"
     msg
@@ -52,7 +53,7 @@ module.exports = (robot) ->
           msg.send('ai取り込み失敗しました')
           return
         result = JSON.parse(body).result
-        console.log(msg.match[1])
+        msg.send msg.match[1]
         msg.send result
 
 # 猫言葉
@@ -73,7 +74,7 @@ module.exports = (robot) ->
 # 氏名解析
 module.exports = (robot) ->
   robot.hear /name\s+(\S+)$/i, (msg) ->
-    console.log(msg.match[1])
+    msg.send msg.match[1]
     requestUrl = endPointUrl + "name"
     msg
       .http(requestUrl)
@@ -104,7 +105,7 @@ module.exports = (robot) ->
         
         for nickname in result.nickname
           suspendNickname += nickname + "\n"
-        console.log(msg.match[1])
+        msg.send msg.match[1]
         msg.send imaginGender + "\n" + suspendNickname
 
 
