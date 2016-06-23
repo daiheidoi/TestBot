@@ -50,7 +50,8 @@ module.exports = (robot) ->
           msg.send('ai取り込み失敗しました')
           return
         result = JSON.parse(body)
-        msg.send result
+        msg.send body
+        msg.send res
 
 # 猫言葉
 module.exports = (robot) ->
