@@ -79,7 +79,7 @@ module.exports = (robot) ->
         if err
           msg.send('ai取り込み失敗しました')
           return
-        result = JSON.parse(body)
+        result = JSON.parse(body).result
         suspendNickname = ""
         imaginGender = ""
         gender = ""
@@ -115,9 +115,9 @@ module.exports = (robot) ->
         if err
           msg.send('ai取り込み失敗しました')
           return
-        result = JSON.parse(body)
+        result = JSON.parse(body).result
         sendMsg = ""
-        for data in result.result
+        for data in result
           sendMsg += "#{data.surface}は\n"
           sendMsg += "#{data.pos}で、#{data.yomi}って読むやろ\n"
           if data.ctype?
