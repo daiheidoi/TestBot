@@ -33,7 +33,7 @@ getCharacterBotRes = (msg, type, url = endPointUrl) ->
       .get() (err, res, body) ->
         if err
           return 'ai取り込み失敗しました'
-        result = JSON.parse(body)
+        result = JSON.parse(body).result
         return result
 
 # 自動会話
@@ -49,7 +49,7 @@ module.exports = (robot) ->
         if err
           msg.send('ai取り込み失敗しました')
           return
-        result = JSON.parse(body)
+        result = JSON.parse(body).result
         msg.send result
 
 # 猫言葉
@@ -118,7 +118,7 @@ module.exports = (robot) ->
         result = JSON.parse(body).result
         sendMsg = ""
         for data in result
-          sendMsg += "#{data.surface}は\n"
+          sendMsg += "`#{data.surface}`は\n"
           sendMsg += "#{data.pos}で、#{data.yomi}って読むやろ\n"
           if data.ctype?
             sendMsg += "#{data.ctype}とか\n"
@@ -126,8 +126,4 @@ module.exports = (robot) ->
             sendMsg += "#{data.cform}って活用できるやろ\n"
 
         sendMsg += "どう？当たってるやろ"
-        msg.send """
-```
-#{sendMsg}
-```
-  """
+        msg.send sendMsg
