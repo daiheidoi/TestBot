@@ -9,7 +9,7 @@
 #   HUBOT_SLACK_BOTNAME
 #
 # Commands:
-#   ai <query> - 自動会話
+# ai <query> - 自動会話
 #	cat <query> - 猫言葉
 #	dog <query> - 犬言葉
 #	jijii <query> - じじい言葉
@@ -24,9 +24,9 @@ key = process.env.HUBOT_USER_LOCAL_AI_KEY
 bot_name = process.env.HUBOT_SLACK_BOTNAME
 platform= "slack"
 
-getCharacterBotRes = (msg, type) ->
-    
+getCharacterBotRes = (msg, type) ->  
     requestUrl = endPointUrl + "character"
+    console.log(msg.match[1])
     msg
       .http(requestUrl)
       .query(key: key, character_type: type, message: msg.match[1])
@@ -40,16 +40,19 @@ getCharacterBotRes = (msg, type) ->
 # 自動会話
 module.exports = (robot) ->
   robot.hear /ai\s+(\S+)$/i, (msg) ->
+    console.log(msg.match[1])
+    user_name = msg.message.user.name
     requestUrl = endPointUrl + "chat"
     msg
       .http(requestUrl)
-      .query(key: key, message: msg.match[1])
+      .query(key: key, bot_name: bot_name, platform: platform, user_name: user_name, message: msg.match[1])
       .header('Accept', 'application/json')
       .get() (err, res, body) ->
         if err
           msg.send('ai取り込み失敗しました')
           return
         result = JSON.parse(body).result
+        console.log(msg.match[1])
         msg.send result
 
 # 猫言葉
@@ -70,6 +73,7 @@ module.exports = (robot) ->
 # 氏名解析
 module.exports = (robot) ->
   robot.hear /name\s+(\S+)$/i, (msg) ->
+    console.log(msg.match[1])
     requestUrl = endPointUrl + "name"
     msg
       .http(requestUrl)
@@ -100,6 +104,7 @@ module.exports = (robot) ->
         
         for nickname in result.nickname
           suspendNickname += nickname + "\n"
+        console.log(msg.match[1])
         msg.send imaginGender + "\n" + suspendNickname
 
 
