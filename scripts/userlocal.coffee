@@ -17,7 +17,7 @@
 #	decompose <query> - 形態解析
 #
 # Author:
-#  houndbee
+#  daiheidoi
 
 endPointUrl = 'https://chatbot-api.userlocal.jp/api/'
 key = process.env.HUBOT_USER_LOCAL_AI_KEY
