@@ -98,8 +98,8 @@ module.exports = (robot) ->
         if result.gender_accuracy == "5"
           imaginGender = "#{gender}すぎてワロリンヌ"
         
-        for i in [0..result.nickname.length]
-          suspendNickname += result.nickname[i] + "\n"
+        for nickname in result.nickname
+          suspendNickname += nickname + "\n"
         msg.send imaginGender + "\n" + suspendNickname
 
 
@@ -117,13 +117,17 @@ module.exports = (robot) ->
           return
         result = JSON.parse(body)
         sendMsg = ""
-        for i in [0..result.length]
-          sendMsg += "#{result[i].surface}は\n"
-          sendMsg += "#{result[i].pos}で、#{result[i].yomi}って読むやろ\n"
+        for data in result
+          sendMsg += "#{data.surface}は\n"
+          sendMsg += "#{data.pos}で、#{result[i].yomi}って読むやろ\n"
           if result[i].ctype.length != 0
-            sendMsg += "#{result[i].ctype}とか\n"
+            sendMsg += "#{data.ctype}とか\n"
           if result[i].cform.length != 0
-            sendMsg += "#{result[i].cform}って活用できるやろ\n"
+            sendMsg += "#{data.cform}って活用できるやろ\n"
 
         sendMsg += "どう？当たってるやろ"
-        msg.send sendMsg
+        msg.send """
+```
+#{sendMsg}
+```
+  """
