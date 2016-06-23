@@ -103,27 +103,32 @@ module.exports = (robot) ->
 #        msg.send imaginGender + "\n" + suspendNickname
 
 # 形態解析
-#module.exports = (robot) ->
-#  robot.hear /decompose\s+(\S+)$/i, (msg) ->
-#    message = encodeURIComponent(msg.match[1])
-#    requestUrl = endPointUrl + 'decompose'
-#    msg
-#      .http(requestUrl)
-#      .query($key: key, $message: message, $detail: "true")
-#      .header('Accept', 'application/json')
-#      .get() (err, res, body) ->
-#        if err
-#          msg.send('ai取り込み失敗しました')
-#          return
-#        result = JSON.parse(body)
-#        sendMsg = ""
-#        for i in [0..result.length]
-#        	sendMsg += "#{result[i].surface}は\n"
-#        	sendMsg += "#{result[i].pos}で、#{result[i].yomi}って読むやろ\n"
-#        	if result[i].ctype.length != 0 then
-#	         sendMsg += "#{result[i].ctype}とか\n"
-#	        if result[i].cform.length != 0 then
-#	        	sendMsg += "#{result[i].cform}って活用できるやろ\n"
-#	        
-#	       sendMsg += "どう？当たってるやろ"
-#     	
+module.exports = (robot) ->
+  robot.hear /decompose\s+(\S+)$/i, (msg) ->
+    message = encodeURIComponent(msg.match[1])
+    requestUrl = endPointUrl + 'decompose'
+    msg
+      .http(requestUrl)
+      .query($key: key, $message: message, $detail: "true")
+      .header('Accept', 'application/json')
+      .get() (err, res, body) ->
+        if err
+          msg.send('ai取り込み失敗しました')
+          return
+        result = JSON.parse(body)
+        sendMsg = ""
+        for i in [0..result.length]
+        	sendMsg += "#{result[i].surface}は\n"
+        	sendMsg += "#{result[i].pos}で、#{result[i].yomi}って読むやろ\n"
+        	if result[i].ctype.length != 0 then
+	         sendMsg += "#{result[i].ctype}とか\n"
+	        if result[i].cform.length != 0 then
+	        	sendMsg += "#{result[i].cform}って活用できるやろ\n"
+	        
+        sendMsg += "どう？当たってるやろ"
+     	
+        msg.send """
+```
+#{sendMsg}
+```
+  """
