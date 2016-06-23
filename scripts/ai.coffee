@@ -29,7 +29,7 @@ getCharacterBotRes = (msg, type, url = endPointUrl) ->
     requestUrl = url + 'character'
     msg
       .http(requestUrl)
-      .query($key: key, $character_type: type, $message: message)
+      .query(key: key, character_type: type, message: message)
       .header('Accept', 'application/json')
       .get() (err, res, body) ->
         if err
@@ -45,7 +45,7 @@ module.exports = (robot) ->
     requestUrl = endPointUrl + 'chat'
     msg
       .http(requestUrl)
-      .query($key: key, $bot_name: bot_name, $platform: platform, $user_name: user_name, $message: message)
+      .query(key: key, bot_name: bot_name, platform: platform, user_name: user_name, message: message)
       .header('Accept', 'application/json')
       .get() (err, res, body) ->
         if err
@@ -76,7 +76,7 @@ module.exports = (robot) ->
     requestUrl = endPointUrl + 'name'
     msg
       .http(requestUrl)
-      .query($key: key, $name: name)
+      .query(key: key, name: name)
       .header('Accept', 'application/json')
       .get() (err, res, body) ->
         if err
@@ -113,7 +113,7 @@ module.exports = (robot) ->
     requestUrl = endPointUrl + 'decompose'
     msg
       .http(requestUrl)
-      .query($key: key, $message: message, $detail: "true")
+      .query(key: key, message: message, detail: "true")
       .header('Accept', 'application/json')
       .get() (err, res, body) ->
         if err
@@ -128,7 +128,7 @@ module.exports = (robot) ->
             sendMsg += "#{result[i].ctype}とか\n"
           if result[i].cform.length != 0
             sendMsg += "#{result[i].cform}って活用できるやろ\n"
-          
+
         sendMsg += "どう？当たってるやろ"
         msg.send """
 ```
