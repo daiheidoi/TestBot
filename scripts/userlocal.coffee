@@ -88,7 +88,7 @@ module.exports = (robot) ->
         gender = if result.gender == 1 then "男" else "女" 
         switch result.gender_accuracy
         	when "1"
-        		imaginGender = "#{gender}かな...いや自信ないわw"
+        		imaginGender = "#{gender}かな。。。いや自信ないわw"
         	when "2"
         		imaginGender = "多分、#{gender}やろ"
         	when "3"
@@ -127,12 +127,4 @@ module.exports = (robot) ->
 	        
 	    sendMsg += "どう？当たってるやろ"
      	
-        msg.send """
-```
-#{sendMsg}
-```
-	"""
-
-
-
-
+        msg.send sendMsg
