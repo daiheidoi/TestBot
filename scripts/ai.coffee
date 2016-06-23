@@ -126,4 +126,4 @@ module.exports = (robot) ->
             sendMsg += "#{result[i].cform}って活用できるやろ\n"
 
         sendMsg += "どう？当たってるやろ"
-        msg.send result[1].surface
+        msg.send result[0].surface
