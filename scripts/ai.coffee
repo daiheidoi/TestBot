@@ -29,11 +29,12 @@ getCharacterBotRes = (msg, type, url = endPointUrl) ->
     requestUrl = url + "character?key=#{key}&character_type=#{type}&message=#{message}"
     msg
       .http(requestUrl)
+      .header('Accept', 'application/json')
       .get() (err, res, body) ->
         if err
           return 'ai取り込み失敗しました'
-        result = JSON.parse(res)
-        return body
+        result = JSON.parse(body)
+        return result
 
 # 自動会話
 module.exports = (robot) ->
@@ -43,12 +44,14 @@ module.exports = (robot) ->
     requestUrl = endPointUrl + "chat?key=#{key}&bot_name=#{bot_name}&platform=#{platform}&user_name=#{user_name}&message=#{message}"
     msg
       .http(requestUrl)
+      .header('Accept', 'application/json')
       .get() (err, res, body) ->
         if err
           msg.send('ai取り込み失敗しました')
           return
         result = JSON.parse(body)
         msg.send result
+
 # 猫言葉
 module.exports = (robot) ->
   robot.hear /cat\s+(\S+)$/i, (msg) ->    
@@ -123,8 +126,4 @@ module.exports = (robot) ->
             sendMsg += "#{result[i].cform}って活用できるやろ\n"
 
         sendMsg += "どう？当たってるやろ"
-        msg.send """
-```
-#{sendMsg}
-```
-  """
+        msg.send body
