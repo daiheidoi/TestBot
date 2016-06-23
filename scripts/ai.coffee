@@ -37,7 +37,7 @@ getCharacterBotRes = (msg, type, url = endPointUrl) ->
         result = JSON.parse(body)
         return result
 
-// 自動会話
+# 自動会話
 module.exports = (robot) ->
   robot.hear /ai\s+(\S+)$/i, (msg) ->
     message = encodeURIComponent(msg.match[1])
@@ -54,22 +54,22 @@ module.exports = (robot) ->
         result = JSON.parse(body)
         msg.send result
 
-// 猫言葉
+# 猫言葉
 module.exports = (robot) ->
   robot.hear /cat\s+(\S+)$/i, (msg) ->    
     msg.send getCharacterBotRes msg, "cat"
 
-// 猫言葉
+# 犬言葉
 module.exports = (robot) ->
   robot.hear /dog\s+(\S+)$/i, (msg) ->
     msg.send getCharacterBotRes msg, "dog"
 
-// 猫言葉
+# じじい言葉
 module.exports = (robot) ->
   robot.hear /jijii\s+(\S+)$/i, (msg) ->
     msg.send getCharacterBotRes msg, "jijii"
 
-// 氏名解析
+# 氏名解析
 module.exports = (robot) ->
   robot.hear /name\s+(\S+)$/i, (msg) ->
     name = encodeURIComponent(msg.match[1])
@@ -102,7 +102,7 @@ module.exports = (robot) ->
         	suspendNickname += result.nickname[i] + "\n"
         msg.send imaginGender + "\n" + suspendNickname
 
-// 形態解析
+# 形態解析
 module.exports = (robot) ->
   robot.hear /decompose\s+(\S+)$/i, (msg) ->
     message = encodeURIComponent(msg.match[1])
