@@ -69,42 +69,6 @@ module.exports = (robot) ->
   robot.hear /jijii\s+(\S+)$/i, (msg) ->
     msg.send getCharacterBotRes msg, "jijii"
 
-# 氏名解析
-module.exports = (robot) ->
-  robot.hear /name\s+(\S+)$/i, (msg) ->
-    name = encodeURIComponent(msg.match[1])
-    requestUrl = endPointUrl + 'name'
-    msg
-      .http(requestUrl)
-      .query($key: key, $name: name)
-      .header('Accept', 'application/json')
-      .get() (err, res, body) ->
-        if err
-          msg.send('ai取り込み失敗しました')
-          return
-        result = JSON.parse(body)
-        suspendNickname = ""
-        imaginGender = ""
-        gender = ""
-        if result.gender == 1
-          gender = "男"
-        else
-          gender = "女"
-        if result.gender_accuracy == "1"
-          imaginGender = "#{gender}かな。。。いや自信ないわw"
-        if result.gender_accuracy == "2"
-          imaginGender = "多分、#{gender}やろ"
-        if result.gender_accuracy == "3"
-          imaginGender = "#{gender}やろ"
-        if result.gender_accuracy == "4"
-          imaginGender = "#{gender}やな。そうじゃなかったら泣くわ"
-        if result.gender_accuracy == "5"
-          imaginGender = "#{gender}すぎてワロリンヌ"
-        
-        for i in [0..result.nickname.length]
-          suspendNickname += result.nickname[i] + "\n"
-        msg.send imaginGender + "\n" + suspendNickname
-
 
 # 形態解析
 module.exports = (robot) ->
