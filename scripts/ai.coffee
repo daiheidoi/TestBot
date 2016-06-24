@@ -44,12 +44,12 @@ module.exports = (robot) ->
   # 自動会話
   robot.hear /ai\s+(\S+)$/i, (msg) ->
     user_name = msg.message.user.name
-    requestUrl = endPointUrl + "chat"
+    message = encodeURIComponent(msg.match[1])
+    requestUrl = endPointUrl + "chat?key=#{key}&bot_name=#{bot_name}&platform=#{platform}&user_name=#{user_name}&message=#{message}"
     console.log("ai: " + msg.match[1])
     console.log("ai encode: " + encodeURIComponent(msg.match[1]))
     msg
       .http(requestUrl)
-      .query(key: key, bot_name: bot_name, platform: platform, user_name: user_name, message: msg.match[1])
       .header('Accept', 'application/json')
       .get() (err, res, body) ->
         if err
