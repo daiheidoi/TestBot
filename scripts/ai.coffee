@@ -26,6 +26,8 @@ platform= "slack"
 
 getCharacterBotRes = (msg, type) ->  
     requestUrl = endPointUrl + "character"
+    console.log("#{type}: " + msg.match[1])
+    console.log("#{type} encode: " + encodeURIComponent(msg.match[1]))
     msg
       .http(requestUrl)
       .query(key: key, character_type: type, message: msg.match[1])
@@ -35,6 +37,7 @@ getCharacterBotRes = (msg, type) ->
           msg.send result
           return
         result = JSON.parse(body).result
+        console.log("#{type} result: " + result)
         msg.send result
 
 module.exports = (robot) ->
@@ -42,6 +45,8 @@ module.exports = (robot) ->
   robot.hear /ai\s+(\S+)$/i, (msg) ->
     user_name = msg.message.user.name
     requestUrl = endPointUrl + "chat"
+    console.log("ai: " + msg.match[1])
+    console.log("ai encode: " + encodeURIComponent(msg.match[1]))
     msg
       .http(requestUrl)
       .query(key: key, bot_name: bot_name, platform: platform, user_name: user_name, message: msg.match[1])
@@ -51,6 +56,7 @@ module.exports = (robot) ->
           msg.send('ai取り込み失敗しました')
           return
         result = JSON.parse(body).result
+        console.log("ai result: " + result)
         msg.send result
 
   # 猫言葉
@@ -68,6 +74,8 @@ module.exports = (robot) ->
   # 氏名解析
   robot.hear /name\s+(\S+)$/i, (msg) ->
     msg.send msg.match[1]
+    console.log("name: " + msg.match[1])
+    console.log("name encode: " + encodeURIComponent(msg.match[1]))
     requestUrl = endPointUrl + "name"
     msg
       .http(requestUrl)
@@ -98,11 +106,14 @@ module.exports = (robot) ->
         
         for nickname in result.nickname
           suspendNickname += nickname + "\n"
+        console.log("name result: " + imaginGender + "\n" + suspendNickname)
         msg.send imaginGender + "\n" + suspendNickname
 
   # 形態解析
   robot.hear /decompose\s+(\S+)$/i, (msg) ->
     requestUrl = endPointUrl + "decompose"
+    console.log("decompose: " + msg.match[1])
+    console.log("decompose encode: " + encodeURIComponent(msg.match[1]))
     msg
       .http(requestUrl)
       .query(key: key, message: msg.match[1], detail: "true")
@@ -129,4 +140,5 @@ module.exports = (robot) ->
           sendMsg += "\n"
 
         sendMsg += "どう？当たってるやろ"
+        console.log("decompose result: " + sendMsg)
         msg.send sendMsg
