@@ -19,8 +19,6 @@
 # Author:
 #  daiheidoi
 
-request = require 'request'
-
 endPointUrl = 'https://chatbot-api.userlocal.jp/api/'
 key = process.env.HUBOT_USER_LOCAL_AI_KEY
 bot_name = process.env.HUBOT_SLACK_BOTNAME
@@ -46,16 +44,20 @@ module.exports = (robot) ->
   # 自動会話
   robot.hear /ai\s+(\S+)$/i, (msg) ->
     user_name = msg.message.user.name
-    requestUrl = endPointUrl + "chat?key=#{key}&bot_name=#{bot_name}&platform=#{platform}&user_name=#{user_name}&message=#{msg.match[1]}"
+    requestUrl = endPointUrl + "chat"
     console.log("ai: " + msg.match[1])
     console.log("ai encode: " + encodeURIComponent(msg.match[1]))
-    request.get { uri: requestUrl, json: true }, (error, response, body) ->
-    if error or response.statusCode != 200
-      console.error(body)
-      throw error
-    result = JSON.parse(body).result
-    console.log("ai result: " + result)
-    msg.send result
+    msg
+      .http(requestUrl)
+      .query(key: key, bot_name: bot_name, platform: platform, user_name: user_name, message: msg.match[1])
+      .header('Accept', 'application/json')
+      .get() (err, res, body) ->
+        if err
+          msg.send('ai取り込み失敗しました')
+          return
+        result = JSON.parse(body).result
+        console.log("ai result: " + result)
+        msg.send result
 
   # 猫言葉
   robot.hear /cat\s+(\S+)$/i, (msg) ->    
