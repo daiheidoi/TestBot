@@ -53,10 +53,9 @@ module.exports = (robot) ->
     if error or response.statusCode != 200
       console.error(body)
       throw error
-    return callback(body.result)
-      result = JSON.parse(body).result
-      console.log("ai result: " + result)
-      msg.send result
+    result = JSON.parse(body).result
+    console.log("ai result: " + result)
+    msg.send result
 
   # 猫言葉
   robot.hear /cat\s+(\S+)$/i, (msg) ->    
