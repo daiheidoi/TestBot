@@ -282,7 +282,7 @@ module.exports = (robot) ->
       if i % 2 == 1 then text += kaoringo
     msg.send text
 
-  robot.respond /タバコ$/i, (msg) ->
+  robot.respond /(タバコ|tbk|tbc)$/i, (msg) ->
     msg.send """
 ```
 　　 ／￣￣＼ 
