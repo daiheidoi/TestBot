@@ -297,7 +297,8 @@ module.exports = (robot) ->
 　 　 |　　　　|ヽ、二⌒) ━Ц　　 　  ＼ 
 ```
   """
-  robot.respond/(maeda|sharappu|shut up)$/i,(msg) ->
+
+  robot.respond /(maeda|sharappu|shut up)$/i, (msg) ->
     msg.send """
 ```
 　　　　　　　　;;;--‐'''':::::::ヽ. 
