@@ -241,7 +241,7 @@ module.exports = (robot) ->
   robot.hear /【悲報】+(.*)$/i, (msg) ->
     msg.send "`【悲報】" + msg.match[1] + "`" + "\n" + "2倍悲しいですが、\n" + "大事なことなので2回言いますた。"
 
-  robot.hear /(.*)+(;|；|><|＞＜|orz|OTL)+(.*)$/i, (msg) ->
+  robot.hear /(.*)+(;|；|><|＞＜|orz|OTL|oh)+(.*)$/i, (msg) ->
     user_name = msg.message.user.name
     if user_name == "shingo_wada"
       msg.send """
