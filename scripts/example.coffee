@@ -311,7 +311,7 @@ module.exports = (robot) ->
 　　　|　　　　 ＼　　＼ 　 ,ノノ　＼ 
 　 　 |　　　　|ヽ、二⌒) ━Ц　　 　  ＼ 
 ```
-
+  """
   robot.respond /(tbk!|T!B!K!|t!b!k!)$/i, (msg) ->
     msg.send """
 ```
@@ -329,16 +329,8 @@ module.exports = (robot) ->
      |        |   ＼   ＼          ＼      （__・∀・)(__・∀・)(__・∀・）
       |  |  |      ＼   ＼          ＼     （　　：　)(　　：　)(　　：　）
 ```
-
-
-
-
- 
-
-
-
-
   """
+
   robot.respond /(maeda|sharappu|shut up)$/i, (msg) ->
     msg.send """
 ```
