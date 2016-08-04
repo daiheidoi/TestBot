@@ -312,6 +312,7 @@ module.exports = (robot) ->
 　 　 |　　　　|ヽ、二⌒) ━Ц　　 　  ＼ 
 ```
   """
+  
   robot.respond /(tbk!|T!B!K!|t!b!k!)$/i, (msg) ->
     msg.send """
 ```
