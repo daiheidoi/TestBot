@@ -361,6 +361,25 @@ module.exports = (robot) ->
 ```
   """
 
+  robot.respond /(wada!|w!a!d!a!|W!A!D!A!)$/i, (msg) ->
+    msg.send """
+```
+     ┌─┐　　┌─┐　　　　　　　
+     │●│　　│●│　　　　　　　
+     └─┤　　└─┤ W！A！D！A! 　
+      ∩　　　　∩　　W！A！D！A！
+    (　ﾟ∀ﾟ)彡(　ﾟ∀ﾟ)彡 　　　
+    ┌─┬⊂彡┌─┬⊂彡　　　　
+    │●│　 │●│　　　　　　
+    └─┘　 └─┘　　　　　　
+　YOｫぉー！！和田ﾗｯﾁｮｯッ！！！！　　
+    ヽ＼ 　　　　　　/／　　　
+   ∧＿∧　　 ∧＿∧　　  ∧＿∧ 　
+（__・∀・)(__・∀・)(__・∀・）
+（　　：　)(　　：　)(　　：　）
+```
+  """
+
  # robot.respond /wiki (.*)$/i, (msg) -> 
   #  msg.send "http://ja.wikipedia.org/wiki/#{msg.match[1]}"
 
