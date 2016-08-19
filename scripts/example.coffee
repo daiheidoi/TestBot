@@ -332,7 +332,7 @@ module.exports = (robot) ->
 ```
   """
 
-  robot.respond /(hanakin|kinyo)$/i, (msg) ->
+  robot.respond /(hanakin|kinyo|ramen)$/i, (msg) ->
     text = "@channel: 今日は麺ラーだお♡\n"
     text += """
 ```
