@@ -333,7 +333,7 @@ module.exports = (robot) ->
   """
 
   robot.respond /(hanakin|kinyo|ramen)$/i, (msg) ->
-    text = "@channel: 今日は麺ラーだお♡\n"
+    text = "@channel: 今日は麺ラーだお♡ :ramen: \n"
     text += """
 ```
 　　　　　　　 ＿＿＿_
