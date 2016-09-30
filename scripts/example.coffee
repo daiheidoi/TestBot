@@ -478,6 +478,20 @@ _＼ (∩ヽ>―くヽ　　/フ―､
 ```
   """
 
+  robot.respond /(wddon)$/i, (msg) ->
+    msg.send """
+```
+　　　　 ＿＿　(⌒)
+　　　 ／￣￣＼/／
+　(⌒)∥∥  ●　●  ∥∥
+　 ＼ｿ∥∥ (_人_) ∥∥
+　　／/＼ヽノ ／|
+　 (＿)　￣￣ ノ
+　　　＼＿＿／
+　　　　 (＿)
+```
+  """  
+
  # robot.respond /wiki (.*)$/i, (msg) -> 
   #  msg.send "http://ja.wikipedia.org/wiki/#{msg.match[1]}"
 
