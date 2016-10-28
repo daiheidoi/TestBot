@@ -615,6 +615,11 @@ _＼ (∩ヽ>―くヽ　　/フ―､
 ```
   """
 
+  robot.hear /(忍びねえな|しのびねえな)$/i, (msg) ->
+    msg.send "https://pic.prepics-cdn.com/shinobineena/33833384.jpeg"
+
+  robot.hear /(構わんよ|かまわんよ)$/i, (msg) ->
+    msg.send "https://pic.prepics-cdn.com/shinobineena/33833385.jpeg"
 
   robot.respond /:iwanami: タバコ$/i, (msg) ->
     msg.send """
