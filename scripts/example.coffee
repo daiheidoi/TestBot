@@ -298,7 +298,7 @@ module.exports = (robot) ->
     msg.send text
 
   robot.respond /today\s+(\S+)$/i, (msg) ->
-  msg.send """
+    msg.send """
 ```
 wdです。
 日付越えた瞬間、2016-11-09 00:03:38だったかな。
