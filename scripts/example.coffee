@@ -297,6 +297,24 @@ module.exports = (robot) ->
       if i % 2 == 1 then text += kaoringo
     msg.send text
 
+  robot.respond /today\s+(\S+)$/i, (msg) ->
+  msg.send """
+```
+wdです。
+日付越えた瞬間、2016-11-09 00:03:38だったかな。
+半額レアガチャを引いたら、
+なんと、、、
+#{msg.match[1]}
+だったんですよ。
+本当このゲーム糞だなと思いましたよ。
+さて明日のwdさんは
+- 今日の半額ガチャ
+- 憤怒の11連
+- 嘆願の11連 
+の三本です。
+```
+  """
+
   robot.respond /(タバコ|tbk|tbc)$/i, (msg) ->
     msg.send """
 ```
