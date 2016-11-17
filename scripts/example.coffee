@@ -631,7 +631,10 @@ _＼ (∩ヽ>―くヽ　　/フ―､
 　　　　　|_/　＼/                       <　＼
 ```
   """
-
+  robot.respond /kibao$/i, (msg) ->
+    time = Date.now()
+    msg.send "`な…なんや、それ……そんなん、ベータテスターどころじゃないやんか！ もう、チートや、チーターやろ、そんなん！`"
+    msg.send "https://i.ytimg.com/vi/wBbxfuePsqw/maxresdefault.jpg?#{time}" 
   robot.hear /くたばれエクストリーム野郎$/i, (msg) ->
     msg.send """
 ```
