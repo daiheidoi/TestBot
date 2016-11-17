@@ -22,7 +22,7 @@ module.exports = (robot) ->
   robot.hear /^bing( image)? (.*)/i, (msg) ->
     imageMe msg, msg.match[2], (url) ->
       time = Date.now()
-      msg.send url + "#{time}"
+      msg.send url + "?#{time}"
 
 imageMe = (msg, query, cb) ->
   msg.http('https://api.datamarket.azure.com/Bing/Search/Image')
