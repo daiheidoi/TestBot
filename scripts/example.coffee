@@ -241,6 +241,32 @@ module.exports = (robot) ->
   robot.hear /【悲報】+(.*)$/i, (msg) ->
     msg.send "`【悲報】" + msg.match[1] + "`" + "\n" + "2倍悲しいですが、\n" + "大事なことなので2回言いますた。"
 
+  robot.hear /(.*)+(土井ちゃん|どいちゃん|doichan|土井chan|doiちゃん)+(.*)$/i, (msg) ->
+    user_name = msg.message.user.name
+    if user_name == "shingo_wada"
+      msg.send "気安く呼ぶなよwd"
+      msg.send """
+    　　いいぜ ヘ(^o^)ヘ
+　　　　　　　　     |∧
+　　　　　　　      /
+てめえが
+何でも思い通りに
+出来るってなら
+　　　　　　　　　 ／
+　　　　　 (^o^)／
+　　　　　／(　)
+　　　　／ ／ ＞
+
+　　　(^o^) 三
+　　　(＼＼　三
+　　　＜　＼　三
+`＼
+(／o^)
+( ／　まずは
+／く　そのふざけた
+　　　幻想をぶち殺す
+    """
+
   robot.hear /(.*)+(;|；|><|＞＜|orz|OTL|oh)+(.*)$/i, (msg) ->
     user_name = msg.message.user.name
     if user_name == "shingo_wada"
