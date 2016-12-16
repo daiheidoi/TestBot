@@ -246,6 +246,7 @@ module.exports = (robot) ->
     if user_name == "shingo_wada"
       msg.send "気安く呼ぶなよwd"
       msg.send """
+```
     　　いいぜ ヘ(^o^)ヘ
 　　　　　　　　     |∧
 　　　　　　　      /
@@ -265,6 +266,7 @@ module.exports = (robot) ->
 ( ／　まずは
 ／く　そのふざけた
 　　　幻想をぶち殺す
+```
     """
 
   robot.hear /(.*)+(;|；|><|＞＜|orz|OTL|oh)+(.*)$/i, (msg) ->
