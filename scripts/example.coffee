@@ -243,7 +243,7 @@ module.exports = (robot) ->
 
   robot.hear /(.*)+(土井ちゃん|どいちゃん|doichan|土井chan|doiちゃん)+(.*)$/i, (msg) ->
     user_name = msg.message.user.name
-    if user_name == "shingo_wada"
+    if user_name == "shingo_wada" or user_name == "kenjiini"
       msg.send "気安く呼ぶなよwd"
       msg.send """
 ```
