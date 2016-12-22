@@ -241,7 +241,7 @@ module.exports = (robot) ->
   robot.hear /【悲報】+(.*)$/i, (msg) ->
     msg.send "`【悲報】" + msg.match[1] + "`" + "\n" + "2倍悲しいですが、\n" + "大事なことなので2回言いますた。"
 
-  robot.hear /(.*)+(土井ちゃん|どいちゃん|doichan|土井chan|doiちゃん)+(.*)$/i, (msg) ->
+  robot.hear /ソルトスプラッシュ$/i, (msg) ->
     time = Date.now()
     msg.send "http://animenavilife.com/wp-content/uploads/2016/07/sorutosupurassyu.jpg?#{time}"   
 
