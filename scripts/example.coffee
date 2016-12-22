@@ -242,6 +242,10 @@ module.exports = (robot) ->
     msg.send "`【悲報】" + msg.match[1] + "`" + "\n" + "2倍悲しいですが、\n" + "大事なことなので2回言いますた。"
 
   robot.hear /(.*)+(土井ちゃん|どいちゃん|doichan|土井chan|doiちゃん)+(.*)$/i, (msg) ->
+    time = Date.now()
+    msg.send "http://animenavilife.com/wp-content/uploads/2016/07/sorutosupurassyu.jpg?#{time}"   
+
+  robot.hear /(.*)+(土井ちゃん|どいちゃん|doichan|土井chan|doiちゃん)+(.*)$/i, (msg) ->
     user_name = msg.message.user.name
     if user_name == "shingo_wada" or user_name == "kenjiini"
       msg.send "気安く呼ぶなよwd"
