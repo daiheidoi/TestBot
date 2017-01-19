@@ -249,7 +249,7 @@ module.exports = (robot) ->
     user_name = msg.message.user.name
     if user_name == "shingo_wada" or user_name == "kenjiini"
       msg.send "気安く呼ぶなよwd"
-      msg.send """
+      msg.send """                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
 ```
     　　いいぜ ヘ(^o^)ヘ
 　　　　　　　　     |∧
@@ -272,7 +272,31 @@ module.exports = (robot) ->
 　　　幻想をぶち殺す
 ```
     """
+  robot.hear /イマジンブレーカー$/i, (msg) ->
+    msg.send """
+```
+    　　いいぜ ヘ(^o^)ヘ
+　　　　　　　　     |∧
+　　　　　　　      /
+てめえが
+何でも思い通りに
+出来るってなら
+　　　　　　　　　 ／
+　　　　　 (^o^)／
+　　　　　／(　)
+　　　　／ ／ ＞
 
+　　　(^o^) 三
+　　　(＼＼　三
+　　　＜　＼　三
+`＼
+(／o^)
+( ／　まずは
+／く　そのふざけた
+　　　幻想をぶち殺す
+```
+    """
+    
   robot.hear /(.*)+(;|；|><|＞＜|orz|OTL|oh)+(.*)$/i, (msg) ->
     user_name = msg.message.user.name
     if user_name == "shingo_wada"
