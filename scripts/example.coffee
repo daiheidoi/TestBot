@@ -691,6 +691,9 @@ _＼ (∩ヽ>―くヽ　　/フ―､
     time = Date.now()
     msg.send "`な…なんや、それ……そんなん、ベータテスターどころじゃないやんか！ もう、チートや、チーターやろ、そんなん！`"
     msg.send "https://i.ytimg.com/vi/wBbxfuePsqw/maxresdefault.jpg?#{time}" 
+  robot.respond /エンペラータイム$/i, (msg) ->
+    time = Date.now()
+    msg.send "http://livedoor.blogimg.jp/animemangainf/imgs/7/c/7c7ce1aa.jpg?#{time}"
   robot.hear /くたばれエクストリーム野郎$/i, (msg) ->
     msg.send """
 ```
