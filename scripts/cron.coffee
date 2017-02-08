@@ -2,15 +2,15 @@ cronJob = require('cron').CronJob
 random = (n) -> Math.floor(Math.random() * n)
 
 wadalib = [
-    '今日もエクストリームしてますか？',
-    '転職先は決まりましたか？',
-    '労働局との交渉はどうでしたか？',
-    '弁護士さんとの相談はどうでしたか？',
-    '営業さんには話しましたか？',
-    '契約書のコピーもらいましたか？',
-    '次の案件は決まりましたか？',
-    '家裁に行きましたか？',
-    'やめた方がいいですよ'
+    'からの',
+    '要するに',
+    'やがて',
+    'もはや',
+    '須く',
+    'だがしかし',
+    'というか',
+    'もう',
+    '察するに'
  ]
 
 module.exports = (robot) -> 
@@ -18,6 +18,6 @@ module.exports = (robot) ->
   new cronJob('0 0 * * * *', () ->
     currentTime = new Date
     currentTime.setTime(currentTime.getTime() + 9 * 60 * 60 * 1000)
-    envelope = room: "#smoking-area"
-    robot.send envelope, "【時報】 #{currentTime.getHours()}時だよー @shingo_wada: #{wadalib[random(wadalib.length - 1)]}"
+    envelope = room: "#jihou_kun"
+    robot.send envelope, "@channel 【時報】#{wadalib[random(wadalib.length - 1)]}、#{currentTime.getHours()}時やで"
   ).start()
