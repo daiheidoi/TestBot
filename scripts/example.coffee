@@ -245,7 +245,7 @@ module.exports = (robot) ->
     time = Date.now()
     msg.send "http://animenavilife.com/wp-content/uploads/2016/07/sorutosupurassyu.jpg?#{time}"   
   
-  robot.hear /スーパー和田さん$/i, (msg) ->
+  robot.hear /スーパー和田マン$/i, (msg) ->
     time = Date.now()
     msg.send "http://livedoor.blogimg.jp/nanjstu/imgs/e/8/e897950c.jpg?#{time}"
 
