@@ -244,6 +244,10 @@ module.exports = (robot) ->
   robot.hear /ソルトスプラッシュ$/i, (msg) ->
     time = Date.now()
     msg.send "http://animenavilife.com/wp-content/uploads/2016/07/sorutosupurassyu.jpg?#{time}"   
+  
+  robot.hear /スーパー和田さん$/i, (msg) ->
+    time = Date.now()
+    msg.send "http://livedoor.blogimg.jp/nanjstu/imgs/e/8/e897950c.jpg?#{time}"
 
   robot.hear /(.*)+(土井ちゃん|どいちゃん|doichan|土井chan|doiちゃん)+(.*)$/i, (msg) ->
     user_name = msg.message.user.name
