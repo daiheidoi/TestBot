@@ -247,7 +247,7 @@ module.exports = (robot) ->
   
   robot.hear /(damare|黙れ|だまれ)$/i, (msg) ->
     time = Date.now()
-      msg.send "http://up.gc-img.net/post_img/2015/12/6UmNqpG5YIErpCV_h3ZGF_52.jpeg?#{time}"
+    msg.send "http://up.gc-img.net/post_img/2015/12/6UmNqpG5YIErpCV_h3ZGF_52.jpeg?#{time}"
 
   robot.hear /スーパー和田マン$/i, (msg) ->
     time = Date.now()
