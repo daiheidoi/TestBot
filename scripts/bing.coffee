@@ -25,13 +25,13 @@ module.exports = (robot) ->
       msg.send url + "?#{time}"
 
 imageMe = (msg, query, cb) ->
-  msg.http('https://api.datamarket.azure.com/Bing/Search/Image')
-    .header("Authorization", "Basic " + new Buffer("#{bingAccountKey}:#{bingAccountKey}").toString('base64'))
-    .query(Query: "'" + query + "'", $format: "json", $top: 50)
+  msg.http('https://api.cognitive.microsoft.com/bing/v5.0/images/search')
+    .header("Ocp-Apim-Subscription-Key:#{bingAccountKey}").toString('base64'))
+    .query(q: "'" + query + "'", $count: 50)
     .get() (err, res, body) ->
       try
-        images = JSON.parse(body).d.results
+        images = JSON.parse(body).value
         image = msg.random images
-        cb image.MediaUrl
+        cb image.contentUrl
       catch error
         cb body
