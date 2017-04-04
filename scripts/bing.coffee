@@ -26,7 +26,7 @@ module.exports = (robot) ->
 
 imageMe = (msg, query, cb) ->
   msg.http('https://api.cognitive.microsoft.com/bing/v5.0/images/search')
-    .header("Ocp-Apim-Subscription-Key:#{bingAccountKey}").toString('base64'))
+    .header("Ocp-Apim-Subscription-Key", "#{bingAccountKey}").toString('base64'))
     .query(q: "'" + query + "'", $count: 50)
     .get() (err, res, body) ->
       try
