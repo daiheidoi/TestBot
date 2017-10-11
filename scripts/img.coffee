@@ -21,7 +21,7 @@ unless GAPIKey
   throw "You must set GOOGLE_API_KEY in your environment vairables"
 
 module.exports = (robot) ->
-  robot.hear /^img( image)? (.*)/i, (msg) ->
+  robot.hear /^bing( image)? (.*)/i, (msg) ->
     imageMe msg, msg.match[2], (url) ->
       time = Date.now()
       msg.send url + "?#{time}"
