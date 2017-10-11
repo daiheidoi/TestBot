@@ -27,7 +27,6 @@ module.exports = (robot) ->
       msg.send url + "?#{time}"
 
 imageMe = (msg, query, cb) ->
-  console.log(query)
   msg.http('https://www.googleapis.com/customsearch/v1')
     .query(key: GAPIKey, $cx: GCSEAccountKey, $searchType: "image", $q: "'" + query + "'", $num: "10")
     .get() (err, res, body) ->
