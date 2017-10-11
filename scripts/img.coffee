@@ -13,7 +13,6 @@
 #
 # Author:
 #   daihei doi
-
 GCSEAccountKey = process.env.GOOGLE_CUSTOM_SEARCH_ENGINE_ID
 GAPIKey = process.env.GOOGLE_API_KEY
 unless GCSEAccountKey
