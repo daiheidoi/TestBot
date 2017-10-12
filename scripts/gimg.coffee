@@ -28,7 +28,7 @@ module.exports = (robot) ->
 
 imageMe = (msg, query, cb) ->
   msg.http('https://www.googleapis.com/customsearch/v1')
-    .query(q: "'" + query + "'", $key: GAPIKey, $cx: GCSEAccountKey, $searchType: "image", $num: 10)
+    .query(q: "'" + query + "'", key: GAPIKey, cx: GCSEAccountKey, searchType: "image", num: 10)
     .get() (err, res, body) ->
       try
         images = JSON.parse(body).items
